@@ -1,121 +1,145 @@
 'use client'
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
+import Link from "next/link";
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
+  const { scrollY } = useScroll();
 
+  // Handle Scroll logic: Hide on scroll down, show on scroll up + change background
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+    setScrolled(latest > 50);
+  });
+
+  // Lock scroll when mobile menu is open
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (menuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
+  }, [menuOpen]);
 
   const links = ["Properties", "About", "Services", "Testimonials", "Contact"];
 
+  // Framer Motion Variants
+  const menuVariants = {
+    closed: { opacity: 0, scale: 0.95, transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+    open: { opacity: 1, scale: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+  };
+
+  const itemVariants = {
+    closed: { y: 20, opacity: 0 },
+    open: { y: 0, opacity: 1 }
+  };
+
   return (
     <>
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`
-          fixed top-0 left-0 right-0 z-50
-          flex items-center justify-between
-          transition-all duration-500
-          ${scrolled
-            ? "bg-[#0D0D1A]/95 backdrop-blur-xl border-b border-[#C9A84C]/10 py-3"
-            : "bg-transparent py-6"}
-        `}
+      <motion.div 
+        initial={{ y: 0 }}
+        animate={{ y: visible ? 0 : -120 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 pointer-events-none"
       >
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6 lg:px-12">
+        <nav className={`
+          w-full max-w-7xl flex items-center justify-between rounded-full 
+          px-4 py-2 md:px-8 md:py-3 transition-all duration-500 pointer-events-auto
+          border border-white/10 shadow-2xl
+          ${scrolled 
+            ? "bg-black/60 backdrop-blur-2xl border-white/20" 
+            : "bg-white/5 backdrop-blur-md"
+          }
+        `}>
           
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-[#C9A84C] to-[#9A7A2E] flex items-center justify-center [clip-path:polygon(50%_0%,100%_25%,100%_75%,50%_100%,0%_75%,0%_25%)]">
-              <span className="font-serif font-bold text-sm text-[#1A1A2E]">
-                M
-              </span>
-            </div>
-
+          {/* Logo Section */}
+          <div className="flex items-center gap-3 shrink-0 group cursor-pointer">
+           
             <div className="leading-tight">
-              <div className="text-[20px] font-serif font-bold tracking-wider text-[#F5F0E8]">
-                MONOPOLY
-              </div>
-              <div className="text-[9px] tracking-[0.4em] font-semibold text-[#C9A84C] -mt-1">
-                PRIME
-              </div>
+              <Link href={'/'}>
+              <img src="./images/log_white.png" className="h-16 w-40"></img>
+              </Link>
             </div>
           </div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-10">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-8">
             {links.map((link) => (
-              <motion.a
+              <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
-                whileHover={{ color: "#C9A84C" }}
-                className="text-[13px] tracking-[0.15em] font-medium uppercase text-[#A09070]"
+                href={`${link.toLowerCase()}`}
+                className="relative text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors group"
               >
                 {link}
-              </motion.a>
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full" />
+              </a>
             ))}
-
+            
             <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="px-6 py-2 text-[11px] uppercase tracking-wider bg-[#C9A84C] text-[#1A1A2E] rounded-full font-semibold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="ml-4 px-6 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
             >
               Book Viewing
             </motion.button>
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-[#F5F0E8]"
+            className="lg:hidden relative z-[60] p-3 text-white"
           >
-            <div className="space-y-1">
-              <span className="block w-6 h-[1px] bg-current" />
-              <span className="block w-6 h-[1px] bg-current" />
-              <span className="block w-6 h-[1px] bg-current" />
+            <div className="flex flex-col gap-1.5 w-6">
+              <motion.span animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }} className="w-full h-0.5 bg-white block" />
+              <motion.span animate={menuOpen ? { opacity: 0 } : { opacity: 1 }} className="w-full h-0.5 bg-white block" />
+              <motion.span animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }} className="w-full h-0.5 bg-white block" />
             </div>
           </button>
-        </div>
-      </motion.nav>
+        </nav>
+      </motion.div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Full-Screen Overlay */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-0 left-0 right-0 bg-[#0D0D1A] z-40 pt-24 pb-10 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[55] lg:hidden bg-slate-950/95 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
-            <div className="flex flex-col items-center gap-6">
+            <motion.div 
+              variants={menuVariants}
+              initial="closed"
+              animate="open"
+              exit="closed"
+              className="flex flex-col items-center gap-8"
+            >
               {links.map((link) => (
-                <a
+                <motion.a
                   key={link}
+                  variants={itemVariants}
                   href={`#${link.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
-                  className="text-sm uppercase tracking-widest text-[#A09070]"
+                  className="text-3xl font-serif italic tracking-widest text-white hover:text-amber-500 transition-colors"
                 >
                   {link}
-                </a>
+                </motion.a>
               ))}
-
-              <button className="mt-4 px-6 py-2 text-xs uppercase tracking-wider bg-[#C9A84C] text-[#1A1A2E] rounded-full font-semibold">
-                Book Viewing
-              </button>
-            </div>
+              <motion.button
+                 variants={itemVariants}
+                 className="mt-8 px-12 py-4 rounded-full bg-amber-500 text-black font-black uppercase tracking-tighter text-sm"
+              >
+                Inquire Now
+              </motion.button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Grain Overlay */}
-      <div className="grain pointer-events-none fixed inset-0 z-10" />
     </>
   );
 };

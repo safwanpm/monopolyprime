@@ -1,213 +1,161 @@
-'use client'
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+"use client";
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { MapPin, Building2, Wallet, ArrowRight, ChevronDown } from 'lucide-react';
 
 const Hero = () => {
-  const { scrollY } = useScroll();
+  const [mode, setMode] = useState('buy'); // UAE Market: buy or rent
 
-  const y = useTransform(scrollY, [0, 600], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
-  const buildingY = useTransform(scrollY, [0, 600], [0, 100]);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 }
+    }
+  };
 
-  const words = ["Luxury", "Premium", "Elite"];
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(
-      () => setWordIndex(i => (i + 1) % words.length),
-      2500
-    );
-    return () => clearInterval(interval);
-  }, []);
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+  };
 
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden">
+    <section className="relative min-h-[100dvh] w-full bg-[#050505] flex flex-col justify-end overflow-hidden pb-10 lg:pb-20">
       
-      {/* Background */}
-      <motion.div style={{ y }} className="absolute inset-0">
+      {/* --- Adaptive Background Image --- */}
+      <motion.div 
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="absolute inset-0 z-0"
+      >
+        <img 
+          src="./images/background.jpg" 
+          alt="UAE Luxury Real Estate" 
+          className="w-full h-full object-cover grayscale brightness-[0.35] object-[70%_center] lg:object-center transition-all duration-700"
+        />
+        {/* Mobile-optimized vignette: Darker at bottom for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent lg:via-transparent" />
+      </motion.div>
+
+      {/* --- Main Content --- */}
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 max-w-[1440px] mx-auto w-full px-6 lg:px-12"
+      >
         
-        {/* Gradient */}
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0D0D1A_0%,#1A1A2E_40%,#0D0D1A_100%)]" />
-
-        {/* Grid Pattern */}
-        <svg
-          className="absolute inset-0 w-full h-full opacity-[0.06]"
-          viewBox="0 0 1440 900"
-        >
-          <defs>
-            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path
-                d="M 80 0 L 0 0 0 80"
-                fill="none"
-                stroke="#C9A84C"
-                strokeWidth="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-
-        {/* Glow Orbs */}
-        <div className="absolute top-[20%] right-[10%] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(201,168,76,0.12)_0%,transparent_70%)] blur-[40px]" />
-        <div className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(201,168,76,0.08)_0%,transparent_70%)] blur-[60px]" />
-      </motion.div>
-
-      {/* Building Silhouette */}
-      <motion.div
-        style={{ opacity, y: buildingY }}
-        className="absolute right-[-5%] bottom-0"
-      >
-        <svg width="700" height="650" viewBox="0 0 700 650" fill="none">
-          <rect x="300" y="200" width="120" height="450" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.15)" />
-          <rect x="200" y="320" width="90" height="330" fill="rgba(201,168,76,0.04)" stroke="rgba(201,168,76,0.1)" />
-          <rect x="410" y="280" width="80" height="370" fill="rgba(201,168,76,0.04)" stroke="rgba(201,168,76,0.1)" />
-          <rect x="100" y="380" width="70" height="270" fill="rgba(201,168,76,0.03)" stroke="rgba(201,168,76,0.08)" />
-          <rect x="500" y="350" width="100" height="300" fill="rgba(201,168,76,0.03)" stroke="rgba(201,168,76,0.08)" />
-
-          {[...Array(8)].map((_, row) =>
-            [...Array(4)].map((_, col) => (
-              <rect
-                key={`w${row}${col}`}
-                x={315 + col * 26}
-                y={215 + row * 50}
-                width="18"
-                height="28"
-                fill={Math.random() > 0.4
-                  ? "rgba(201,168,76,0.4)"
-                  : "rgba(201,168,76,0.1)"}
-              />
-            ))
-          )}
-
-          <line x1="0" y1="648" x2="700" y2="648" stroke="rgba(201,168,76,0.2)" />
-        </svg>
-      </motion.div>
-
-      {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 lg:px-[8vw]"
-      >
-        {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="section-label mb-6"
-        >
-          ✦ Sharjah's Premier Real Estate
-        </motion.div>
-
-        {/* Headline */}
-        <div className="overflow-hidden">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="font-serif text-[clamp(52px,8vw,110px)] font-light leading-none tracking-[-0.02em] text-[#F5F0E8]"
-          >
-            Find Your
-          </motion.h1>
-        </div>
-
-        {/* Rotating Word */}
-        <div className="flex items-center h-[clamp(60px,9vw,120px)]">
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={wordIndex}
-              initial={{ y: 60, opacity: 0, rotateX: -40 }}
-              animate={{ y: 0, opacity: 1, rotateX: 0 }}
-              exit={{ y: -60, opacity: 0, rotateX: 40 }}
-              transition={{ duration: 0.6 }}
-              className="block font-serif text-[clamp(52px,8vw,110px)] font-bold leading-none tracking-[-0.02em] text-[#C9A84C]"
+        {/* 1. Buy/Rent Toggle (Luxury Style) */}
+        <motion.div variants={itemVariants} className="flex gap-1  w-fit mb-8  pt-36 ">
+          {['buy', 'rent'].map((item) => (
+            <button
+              key={item}
+              onClick={() => setMode(item)}
+              className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
+                mode === item ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20' : 'text-gray-400 hover:text-white'
+              }`}
             >
-              {words[wordIndex]}
-            </motion.span>
-          </AnimatePresence>
-        </div>
-
-        <div className="overflow-hidden">
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 1 }}
-            className="font-serif text-[clamp(52px,8vw,110px)] font-light leading-none tracking-[-0.02em] text-[#F5F0E8] mb-8"
-          >
-            Rental Home
-          </motion.h1>
-        </div>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9 }}
-          className="text-base leading-relaxed text-[#A09070] max-w-md mb-12 font-light"
-        >
-          Discover curated luxury residences across Sharjah’s most prestigious
-          neighborhoods. From waterfront apartments to spacious villas — your
-          perfect home awaits.
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-          className="flex gap-4 flex-wrap"
-        >
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="btn-primary"
-          >
-            Explore Properties
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="btn-outline"
-          >
-            Watch Tour ▶
-          </motion.button>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
-          className="flex gap-10 md:gap-16 mt-20 pt-10 border-t border-[#C9A84C]/20 flex-wrap"
-        >
-          {[
-            ["500+", "Properties"],
-            ["12+", "Years"],
-            ["98%", "Client Satisfaction"],
-            ["AED 500M+", "Rentals Managed"],
-          ].map(([num, label]) => (
-            <div key={label}>
-              <div className="font-serif text-3xl md:text-4xl font-bold text-[#C9A84C]">
-                {num}
-              </div>
-              <div className="text-xs tracking-[0.2em] uppercase text-[#A09070] mt-1">
-                {label}
-              </div>
-            </div>
+              {item}
+            </button>
           ))}
         </motion.div>
-      </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
-      >
-        <span className="text-[10px] tracking-[0.3em] uppercase text-[#A09070]">
-          Scroll
-        </span>
-        <div className="w-px h-10 bg-gradient-to-b from-[#C9A84C] to-transparent" />
+        {/* 2. Dynamic Heading */}
+        <motion.div variants={itemVariants} className="mb-10 lg:mb-16">
+          <span className="text-amber-500  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
+            The Pinnacle of UAE Living
+          </span>
+          <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
+            FIND THE <br /> 
+            <span className="text-amber-500">
+              {mode === 'buy' ? 'INVESTMENT.' : 'RESIDENCE.'}
+            </span>
+          </h1>
+        </motion.div>
+
+        {/* 3. Search Matrix (The Responsive Grid) */}
+        <motion.div 
+          variants={itemVariants}
+          className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl lg:rounded-xl overflow-hidden shadow-2xl"
+        >
+          {/* Field: Neighborhood */}
+          <div className="p-6 lg:p-8 border-b md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
+            <div className="flex items-center gap-3 mb-2">
+              <MapPin size={14} className="text-amber-500" />
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">Neighborhood</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <select className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none appearance-none cursor-pointer">
+                <option className="bg-[#111]">Palm Jumeirah</option>
+                <option className="bg-[#111]">Dubai Marina</option>
+                <option className="bg-[#111]">Business Bay</option>
+                <option className="bg-[#111]">Downtown Dubai</option>
+              </select>
+              <ChevronDown size={14} className="text-gray-600 group-hover:text-amber-500 transition-colors" />
+            </div>
+          </div>
+
+          {/* Field: Asset Type */}
+          <div className="p-6 lg:p-8 border-b lg:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
+            <div className="flex items-center gap-3 mb-2">
+              <Building2 size={14} className="text-amber-500" />
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">Asset Class</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <select className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none appearance-none cursor-pointer">
+                <option className="bg-[#111]">Signature Villa</option>
+                <option className="bg-[#111]">Penthouse</option>
+                <option className="bg-[#111]">Townhouse</option>
+                <option className="bg-[#111]">Hotel Apartment</option>
+              </select>
+              <ChevronDown size={14} className="text-gray-600 group-hover:text-amber-500 transition-colors" />
+            </div>
+          </div>
+
+          {/* Field: Budget (Dynamic) */}
+          <div className="p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all group">
+            <div className="flex items-center gap-3 mb-2">
+              <Wallet size={14} className="text-amber-500" />
+              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
+                {mode === 'buy' ? 'Investment (AED)' : 'Annual Rent (AED)'}
+              </span>
+            </div>
+            <input 
+              type="text" 
+              placeholder={mode === 'buy' ? "5M - 20M+" : "150k - 500k"}
+              className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none placeholder:text-white/20"
+            />
+          </div>
+
+          {/* Action Button (Stretches on Mobile) */}
+          <button className="p-6 lg:p-8 bg-amber-500  flex items-center justify-between group hover:bg-[#9A7A2E]  transition-all duration-700">
+            <span className="text-white group-hover:text-white font-black uppercase text-xs lg:text-sm tracking-tighter transition-colors">
+              Begin Exploration
+            </span>
+            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:border-white/30 group-hover:rotate-[-45deg] transition-all duration-700">
+              <ArrowRight size={18} className="text-black group-hover:text-white" />
+            </div>
+          </button>
+        </motion.div>
+
+        {/* 4. Trust Bar (Simplified for Phone) */}
+        <motion.div 
+          variants={itemVariants}
+          className="mt-10 flex flex-col md:flex-row gap-6 md:gap-20 items-start md:items-center opacity-40 hover:opacity-100 transition-all duration-700"
+        >
+           {[
+             { num: '01.', label: 'Curated Portfolio' },
+             { num: '02.', label: 'Bespoke Advisory' },
+             { num: '03.', label: 'Off-Market Access' }
+           ].map((stat, i) => (
+             <div key={i} className="flex items-center gap-4 md:flex-col md:items-start md:gap-0">
+                <span className="text-white font-bold text-lg md:text-xl">{stat.num}</span>
+                <span className="text-white text-[9px] uppercase font-bold tracking-[0.2em]">{stat.label}</span>
+             </div>
+           ))}
+        </motion.div>
+
       </motion.div>
     </section>
   );

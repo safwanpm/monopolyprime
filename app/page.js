@@ -1,3 +1,4 @@
+import AboutPage from "@/components/About";
 import AboutSection from "@/components/AboutSection";
 import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
@@ -15,12 +16,13 @@ export default function Home() {
     <>
     <Navbar/>
    <Hero/>
-   <SearchBar/>
+   {/* <SearchBar/> */}
    <Properties/>
-   <AboutSection/>
+   {/* <AboutSection/> */}
+   <AboutPage/>
    <Services/>
    <Testimonials/>
-   <CTA/>
+   {/* <CTA/>/ */}
    <Contact/>
    <Footer/>
 

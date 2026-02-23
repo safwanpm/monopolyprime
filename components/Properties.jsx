@@ -1,212 +1,218 @@
-'use client'
+"use client";
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, BedDouble, Bath, MapPin, ChevronRight ,MessageCircle ,Phone} from 'lucide-react';
+import gsap from 'gsap';
 
-import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-
-const PROPERTIES = [
+const properties = [
   {
     id: 1,
-    title: "Al Majaz Waterfront",
-    type: "3BR Apartment",
-    price: "AED 85,000 / yr",
-    area: "2,100 sqft",
-    badge: "Featured",
-    features: ["Waterfront View", "Smart Home", "Private Pool"],
-    tag: "Luxury",
+    title: "The Sky Penthouse",
+    location: "Business Bay, Dubai",
+    price: "AED 12.5M",
+    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200",
+    beds: 4,
+    baths: 5,
+    sqft: "4,200",
+    tag: "Exclusive"
   },
   {
     id: 2,
-    title: "Muwaileh Complex",
-    type: "4BR Villa",
-    price: "AED 120,000 / yr",
-    area: "3,800 sqft",
-    badge: "New Listing",
-    features: ["Garden", "Maid's Room", "Double Garage"],
-    tag: "Villa",
+    title: "Palm Jumeirah Villa",
+    location: "Frond K, Dubai",
+    price: "AED 45.0M",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200",
+    beds: 6,
+    baths: 7,
+    sqft: "11,500",
+    tag: "Beachfront"
   },
   {
     id: 3,
-    title: "Al Nahda Towers",
-    type: "1BR Apartment",
-    price: "AED 42,000 / yr",
-    area: "950 sqft",
-    badge: "Hot Deal",
-    features: ["City View", "Gym Access", "Covered Parking"],
-    tag: "Apartment",
-  },
-  {
-    id: 4,
-    title: "Aljada Community",
-    type: "2BR Townhouse",
-    price: "AED 75,000 / yr",
-    area: "1,650 sqft",
-    badge: "Premium",
-    features: ["Community Pool", "Kids Area", "Retail Nearby"],
-    tag: "Townhouse",
-  },
+    title: "Modernist Mansion",
+    location: "Dubai Hills Estate",
+    price: "AED 28.0M",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+    beds: 5,
+    baths: 6,
+    sqft: "8,900",
+    tag: "New Launch"
+  }
 ];
 
-const CARD_GRADIENTS = [
-  "from-[#2A1F3D] to-[#1A1A2E]",
-  "from-[#1F2D3D] to-[#1A1A2E]",
-  "from-[#1F3D2A] to-[#1A1A2E]",
-  "from-[#3D2A1F] to-[#1A1A2E]",
-];
+const PropertyCard = ({ prop, index }) => {
+  const cardRef = useRef(null);
+  const iconRef = useRef(null);
 
-const PropertyCard = ({ property, index }) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const [hovered, setHovered] = useState(false);
+  useEffect(() => {
+    const card = cardRef.current;
+    const icon = iconRef.current;
+    if (!card || !icon) return;
 
-  const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length];
+    // GSAP QuickTo for smooth performance
+    const xTo = gsap.quickTo(icon, "x", { duration: 0.6, ease: "power3.out" });
+    const yTo = gsap.quickTo(icon, "y", { duration: 0.6, ease: "power3.out" });
+
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const { left, top, width, height } = card.getBoundingClientRect();
+      const x = clientX - (left + width / 2);
+      const y = clientY - (top + height / 2);
+
+      // Magnetic effect strength (0.2 = 20% of distance)
+      xTo(x * 0.2);
+      yTo(y * 0.2);
+    };
+
+    const handleMouseLeave = () => {
+      xTo(0);
+      yTo(0);
+    };
+
+    card.addEventListener("mousemove", handleMouseMove);
+    card.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      card.removeEventListener("mousemove", handleMouseMove);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <motion.div
-      ref={ref}
+      ref={cardRef}
       initial={{ opacity: 0, y: 60 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        delay: index * 0.12,
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`
-        card-glass group cursor-pointer overflow-hidden
-        border transition-all duration-500
-        ${
-          hovered
-            ? "border-[#C9A84C]/40 shadow-[0_40px_80px_rgba(0,0,0,0.45),0_0_40px_rgba(201,168,76,0.12)] -translate-y-2"
-            : "border-[#C9A84C]/10"
-        }
-      `}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true }}
+      className="group relative flex flex-col"
     >
-      {/* Visual */}
-      <div className={`relative h-60 bg-gradient-to-br ${gradient}`}>
+      {/* Container for Image */}
+      <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-neutral-900 border border-white/5">
+        <motion.img
+          src={prop.image}
+          alt={prop.title}
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 1.2 }}
+          className="w-full h-full object-cover opacity-60 group-hover:opacity-100 grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+        />
 
-        <div className="absolute top-4 left-4 badge-primary">
-          {property.badge}
+        {/* Top Badges */}
+        <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
+          <div className="bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
+            <span className="text-amber-500 text-[9px] font-black uppercase tracking-[0.2em]">{prop.tag}</span>
+          </div>
+          <div className="bg-amber-500 px-3 py-1.5 rounded-lg shadow-xl shadow-amber-500/20">
+            <span className="text-black font-bold text-xs">{prop.price}</span>
+          </div>
         </div>
-
-        <div className="absolute top-4 right-4 badge-outline">
-          {property.tag}
-        </div>
-
-        <div className="absolute inset-0 flex items-center justify-center opacity-10">
-          <BuildingIcon />
-        </div>
-
-        <motion.div
-          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 20 }}
-          transition={{ duration: 0.35 }}
-          className="
-            absolute bottom-0 left-0 right-0
-            bg-gradient-to-t from-[#0D0D1A]/95 to-transparent
-            px-5 pt-10 pb-4
-            font-serif text-xl font-bold text-[#C9A84C]
-          "
-        >
-          {property.price}
-        </motion.div>
       </div>
 
-      {/* Body */}
-      <div className="p-6">
-        <div className="property-meta">
-          {property.type} · {property.area}
-        </div>
+      {/* Floating Details Card */}
+      <div className="relative -mt-24 mx-4 z-10">
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-3xl border border-white/10 p-6 rounded-[2rem] shadow-2xl transition-all duration-500 group-hover:border-amber-500/40">
 
-        <h3 className="property-title">
-          {property.title}
-        </h3>
+          {/* --- HEADER: LOCATION & TITLE --- */}
+          <div className="flex justify-between items-start gap-4">
+            <div className="flex-1">
+              <div className="flex items-center gap-2 text-amber-500/80 mb-1">
+                <MapPin size={12} />
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold">{prop.location}</span>
+              </div>
+              <h3 className="text-xl font-bold text-white leading-tight group-hover:text-amber-500 transition-colors">
+                {prop.title}
+              </h3>
+            </div>
 
-        <div className="flex flex-wrap gap-2 mb-5">
-          {property.features.map((feature) => (
-            <span key={feature} className="feature-pill">
-              {feature}
-            </span>
-          ))}
-        </div>
+            <div
+              ref={iconRef}
+              className="bg-white text-black p-3 rounded-full flex-shrink-0 group-hover:bg-amber-500 transition-colors cursor-pointer"
+            >
+              <ArrowUpRight size={18} />
+            </div>
+          </div>
 
-        <div className="flex items-center justify-between">
-          <span className="price-text">
-            {property.price}
-          </span>
+          {/* --- STATS GRID --- */}
+          <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-3 gap-2">
+            <div className="flex flex-col">
+              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">Beds</span>
+              <div className="flex items-center gap-1.5 text-white font-bold">
+                <BedDouble size={14} className="text-amber-500/50" /> {prop.beds}
+              </div>
+            </div>
+            <div className="flex flex-col border-x border-white/5 px-4">
+              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">Baths</span>
+              <div className="flex items-center gap-1.5 text-white font-bold">
+                <Bath size={14} className="text-amber-500/50" /> {prop.baths}
+              </div>
+            </div>
+            <div className="flex flex-col pl-2">
+              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">Size</span>
+              <div className="text-white font-bold text-xs whitespace-nowrap">
+                {prop.sqft} <span className="text-[9px] text-neutral-500 tracking-tighter">SQFT</span>
+              </div>
+            </div>
+          </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="btn-card"
-          >
-            View →
-          </motion.button>
+          {/* --- SIGNATURE ACTION ROW --- */}
+          <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-2 gap-3">
+            {/* WhatsApp Button */}
+            <a
+              href={`https://wa.me/971588017015?text=I'm interested in ${prop.title}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 py-3 rounded-xl text-[#25D366] text-[10px] font-black uppercase tracking-widest hover:bg-[#25D366] hover:text-black transition-all duration-300"
+            >
+              <MessageCircle size={14} fill="currentColor" /> WhatsApp
+            </a>
+
+            {/* Call Button */}
+            <a
+              href="tel:+971588017015"
+              className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-all duration-300"
+            >
+              <Phone size={14} fill="currentColor" /> Call Now
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>
   );
 };
 
-const Properties = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
+const PropertyCollection = () => {
   return (
-    <section
-      id="properties"
-      className="px-6 md:px-16 lg:px-[8vw] py-28"
-    >
-      <div ref={ref} className="mb-16">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          className="section-label"
-        >
-          ✦ Curated Listings
-        </motion.div>
+    <section className="bg-[#050505] py-24 px-6 lg:px-12 selection:bg-amber-500 selection:text-black">
+      <div className="max-w-7xl mx-auto">
+        <header className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <div className="space-y-4">
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: 80 }}
+              className="h-1 bg-amber-500"
+            />
+            <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase leading-[0.9]">
+              Curated <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 to-neutral-500"
+                style={{ WebkitTextStroke: '1px rgba(255,255,255,0.05)' }}>
+                Masterpieces
+              </span>
+            </h2>
+          </div>
 
-        <div className="gold-line my-6" />
+          <button className="flex items-center gap-3 text-neutral-500 hover:text-white transition-all uppercase text-[10px] font-black tracking-[0.3em] group">
+            All Listings
+            <ChevronRight size={16} className="text-amber-500 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </header>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="section-heading"
-        >
-          Featured <span className="text-[#C9A84C]">Properties</span>
-          <br />
-          in Sharjah
-        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          {properties.map((prop, idx) => (
+            <PropertyCard key={prop.id} prop={prop} index={idx} />
+          ))}
+        </div>
       </div>
-
-      <div className="property-grid">
-        {PROPERTIES.map((property, index) => (
-          <PropertyCard
-            key={property.id}
-            property={property}
-            index={index}
-          />
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        className="text-center mt-14"
-      >
-        <button className="btn-outline">
-          View All 500+ Properties
-        </button>
-      </motion.div>
     </section>
   );
 };
 
-const BuildingIcon = () => (
-  <svg width="120" height="120" viewBox="0 0 120 120">
-    <rect x="40" y="20" width="40" height="100" fill="none" stroke="#C9A84C" strokeWidth="1.5"/>
-    <rect x="20" y="50" width="30" height="70" fill="none" stroke="#C9A84C" strokeWidth="1.5"/>
-    <rect x="70" y="40" width="30" height="80" fill="none" stroke="#C9A84C" strokeWidth="1.5"/>
-  </svg>
-);
-
-export default Properties;
+export default PropertyCollection;
