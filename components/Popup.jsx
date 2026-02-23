@@ -212,7 +212,7 @@ const MonopolyAbsoluteGlass = () => {
                     </span>
                     <div className="grid grid-cols-2 gap-3 lg:gap-4">
                       <a
-                        href="#"
+                        href="https://www.bayut.com/companies/monopoly-prime-properties-105666/"
                         className="flex items-center justify-between p-4 lg:p-6 bg-[#2c8444]/5 border border-[#2c8444]/20 rounded-xl lg:rounded-2xl hover:bg-[#2c8444]/10 transition-all"
                       >
                         <span className="text-white font-bold uppercase tracking-widest text-[9px] lg:text-[11px]">
@@ -221,7 +221,7 @@ const MonopolyAbsoluteGlass = () => {
                         <ExternalLink size={12} className="text-white/40" />
                       </a>
                       <a
-                        href="#"
+                        href="https://uae.dubizzle.com/ar/property-agencies/monopoly-prime-properties-10357/"
                         className="flex items-center justify-between p-4 lg:p-6 bg-[#ff385c]/5 border border-[#ff385c]/20 rounded-xl lg:rounded-2xl hover:bg-[#ff385c]/10 transition-all"
                       >
                         <span className="text-white font-bold uppercase tracking-widest text-[9px] lg:text-[11px]">

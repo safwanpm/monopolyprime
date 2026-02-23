@@ -24,7 +24,7 @@ const services = [
     desc: "Assisting clients in buying and selling residential and commercial properties, ensuring smooth transactions and market-leading value.", 
     icon: <Home size={28} />, 
     span: "md:col-span-2",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/service1.webp"
   },
   { 
     id: "02", 
@@ -32,7 +32,7 @@ const services = [
     desc: "From short-term to long-term rentals, we bridge the gap between tenants and landlords with absolute confidence.", 
     icon: <Key size={28} />, 
     span: "md:col-span-1",
-    image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1200&auto=format&fit=crop"
+   image: "/images/service2.webp"
   },
   { 
     id: "03", 
@@ -40,7 +40,7 @@ const services = [
     desc: "Access the latest projects from trusted developers with expert guidance to secure premier investment opportunities.", 
     icon: <Building2 size={28} />, 
     span: "md:col-span-1",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/property1.webp"
   },
   { 
     id: "04", 
@@ -48,7 +48,7 @@ const services = [
     desc: "Maximize returns through strategic property investments across the high-yield markets of Dubai and Sharjah.", 
     icon: <TrendingUp size={28} />, 
     span: "md:col-span-2",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"
+    image: "/images/service4.webp"
   },
   { 
     id: "05", 
@@ -56,7 +56,7 @@ const services = [
     desc: "In-depth market insights and personalized pricing strategies to support every step of your real estate journey.", 
     icon: <Search size={28} />, 
     span: "md:col-span-3",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
+    iimage: "/images/service5.webp"
   }
 ];
 

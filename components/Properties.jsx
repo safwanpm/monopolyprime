@@ -10,7 +10,7 @@ const properties = [
     title: "The Sky Penthouse",
     location: "Business Bay, Dubai",
     price: "AED 12.5M",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1200",
+    image: "/images/property1.webp",
     beds: 4,
     baths: 5,
     sqft: "4,200",
@@ -21,7 +21,7 @@ const properties = [
     title: "Palm Jumeirah Villa",
     location: "Frond K, Dubai",
     price: "AED 45.0M",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200",
+     image: "/images/property2.webp",
     beds: 6,
     baths: 7,
     sqft: "11,500",
@@ -32,7 +32,7 @@ const properties = [
     title: "Modernist Mansion",
     location: "Dubai Hills Estate",
     price: "AED 28.0M",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200",
+   image: "/images/property3.webp",
     beds: 5,
     baths: 6,
     sqft: "8,900",
@@ -160,7 +160,7 @@ const PropertyCard = ({ prop, index }) => {
               href={`https://wa.me/971588017015?text=I'm interested in ${prop.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 py-3 rounded-xl text-[#25D366] text-[10px] font-black uppercase tracking-widest hover:bg-[#25D366] hover:text-black transition-all duration-300"
+              className="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black transition-all duration-300"
             >
               <MessageCircle size={14} fill="currentColor" /> WhatsApp
             </a>
@@ -222,14 +222,14 @@ const PropertyCollection = () => {
               name: "Dubizzle", 
               tag: "Market Dominance",
               desc: "Explore our verified collection on the region's largest marketplace.", 
-              href: "#", 
+              href: "https://uae.dubizzle.com/ar/property-agencies/monopoly-prime-properties-10357/", 
               color: "from-red-500/20" 
             },
             { 
               name: "Bayut", 
               tag: "Elite Standards",
               desc: "Deep-dive into our exclusive inventory with TruCheck™ certification.", 
-              href: "#", 
+              href: "https://www.bayut.com/companies/monopoly-prime-properties-105666/", 
               color: "from-emerald-500/20" 
             }
           ].map((portal, idx) => (
