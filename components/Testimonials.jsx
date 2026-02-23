@@ -14,22 +14,21 @@ const testimonials = [
     name: "Khalid Al-Hashemi",
     location: "Sharjah Waterfront",
     comment: "The precision in their market analysis is surgical. They secured a legacy asset that outperformed all benchmarks.",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop"
+    image: "/images/service1.webp"
   },
   {
     id: "02",
     name: "Elena Rodriguez",
     location: "Dubai Hills Estate",
     comment: "Signature real estate requires a signature mindset. Their team delivered strategic insight that is rare in the Emirates.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop"
+    image: "/images/service2.webp"
   },
   {
     id: "03",
     name: "Omar Bin Sulayem",
     location: "Aljada, Sharjah",
     comment: "Their off-plan consultations are the gold standard. We secured units in a pre-launch phase with immediate equity growth.",
-    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=800&auto=format&fit=crop"
-  }
+ image: "/images/service3.webp" }
 ];
 
 const TitanAbsolute = () => {
