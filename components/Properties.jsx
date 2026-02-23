@@ -183,6 +183,8 @@ const PropertyCollection = () => {
   return (
     <section className="bg-[#050505] py-24 px-6 lg:px-12 selection:bg-amber-500 selection:text-black">
       <div className="max-w-7xl mx-auto">
+        
+        {/* --- HEADER --- */}
         <header className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="space-y-4">
             <motion.div
@@ -205,9 +207,81 @@ const PropertyCollection = () => {
           </button>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+        {/* --- PROPERTY GRID --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mb-24">
           {properties.map((prop, idx) => (
             <PropertyCard key={prop.id} prop={prop} index={idx} />
+          ))}
+        </div>
+
+        {/* --- NEW: LARGE SIGNATURE FOOTER --- */}
+      {/* --- THE SIGNATURE PORTAL BLOCK --- */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {[
+            { 
+              name: "Dubizzle", 
+              tag: "Market Dominance",
+              desc: "Explore our verified collection on the region's largest marketplace.", 
+              href: "#", 
+              color: "from-red-500/20" 
+            },
+            { 
+              name: "Bayut", 
+              tag: "Elite Standards",
+              desc: "Deep-dive into our exclusive inventory with TruCheck™ certification.", 
+              href: "#", 
+              color: "from-emerald-500/20" 
+            }
+          ].map((portal, idx) => (
+            <motion.a
+              key={portal.name}
+              href={portal.href}
+              target="_blank"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.8 }}
+              viewport={{ once: true }}
+              className="group relative overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 p-8 transition-all duration-500 hover:border-amber-500/40 hover:bg-neutral-900/40"
+            >
+              {/* Animated Gradient Glow */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${portal.color} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              
+              <div className="relative z-10 flex flex-col h-full justify-between gap-8">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-1">
+                      <span className="h-1 w-4 rounded-full bg-amber-500" />
+                      <span className="h-1 w-1 rounded-full bg-amber-500/40" />
+                    </div>
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500">
+                      {portal.tag}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tighter uppercase leading-none">
+                    View on <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">
+                      {portal.name}
+                    </span>
+                  </h3>
+                </div>
+
+                <div className="flex items-end justify-between gap-4">
+                  <p className="max-w-[180px] text-[11px] text-neutral-400 font-medium leading-relaxed uppercase tracking-wider">
+                    {portal.desc}
+                  </p>
+                  
+                  <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-amber-500 group-hover:text-black group-hover:rotate-[360deg] transition-all duration-700">
+                    <ArrowUpRight size={32} strokeWidth={1.5} />
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative Large Background Text */}
+              <div className="absolute -top-6 -right-6 text-9xl font-black text-white/[0.01] uppercase pointer-events-none group-hover:text-white/[0.03] transition-all duration-1000 select-none">
+                {portal.name}
+              </div>
+            </motion.a>
           ))}
         </div>
       </div>
