@@ -16,20 +16,20 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <>
-    <Navbar/>
-  
-   <Hero/>
-   {/* <SearchBar/> */}
-   <Properties/>
-   {/* <AboutSection/> */}
-   <AboutPage/>
-   <Services/>
-   <PartnerAlliance/>
-   <Testimonials/>
-   {/* <CTA/>/ */}
-   <Contact/>
-   <Footer/>
-<SignaturePopup/>
+      <Navbar />
+
+      <Hero />
+      {/* <SearchBar/> */}
+      <Properties />
+      {/* <AboutSection/> */}
+      <AboutPage />
+      <Services />
+      <PartnerAlliance />
+      <Testimonials />
+      {/* <CTA/>/ */}
+      <Contact />
+      <Footer />
+      <SignaturePopup />
     </>
   );
 }

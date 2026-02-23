@@ -59,10 +59,9 @@ const Navbar = () => {
           
           {/* Logo Section */}
           <div className="flex items-center gap-3 shrink-0 group cursor-pointer">
-           
             <div className="leading-tight">
               <Link href={'/'}>
-              <img src="./images/log_white.png" className="h-16 w-40"></img>
+                <img src="./images/log_white.png" className="h-16 w-40" alt="MonopolyPrime Properties Logo" />
               </Link>
             </div>
           </div>
@@ -112,6 +111,14 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[55] lg:hidden bg-slate-950/95 backdrop-blur-2xl flex flex-col items-center justify-center"
           >
+            {/* Close Button */}
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="absolute top-6 right-6 text-white text-3xl font-light tracking-wide hover:text-amber-500 transition-colors"
+            >
+              ✕
+            </button>
+
             <motion.div 
               variants={menuVariants}
               initial="closed"

@@ -1,5 +1,7 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LenisWrapper from "@/components/LenisWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -115,7 +117,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <LenisWrapper>
+          {children}
+        </LenisWrapper>
+        
       </body>
     </html>
   );
