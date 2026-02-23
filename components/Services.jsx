@@ -56,7 +56,7 @@ const services = [
     desc: "In-depth market insights and personalized pricing strategies to support every step of your real estate journey.", 
     icon: <Search size={28} />, 
     span: "md:col-span-3",
-    iimage: "/images/service5.webp"
+    image: "/images/service5.webp"
   }
 ];
 
