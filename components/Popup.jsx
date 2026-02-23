@@ -63,10 +63,10 @@ const MonopolyAbsoluteGlass = () => {
             {/* ACTION LABEL */}
             <div className="flex flex-col mr-12">
               <span className="text-amber-500 text-[8px] font-black uppercase tracking-[0.5em] leading-none mb-1">
-                Protocol
+                Prime
               </span>
               <span className="text-white text-[11px] font-bold tracking-[0.2em] uppercase">
-                Prime Access
+                Connect
               </span>
             </div>
 

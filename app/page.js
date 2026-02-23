@@ -4,6 +4,7 @@ import Contact from "@/components/Contact";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import TitanHorizonLoader from "@/components/Loadingcomponent";
 import Navbar from "@/components/Navbar";
 import PartnerAlliance from "@/components/Partners";
 import SignaturePopup from "@/components/Popup";
@@ -16,20 +17,20 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <>
-      <Navbar />
-
-      <Hero />
-      {/* <SearchBar/> */}
-      <Properties />
-      {/* <AboutSection/> */}
-      <AboutPage />
-      <Services />
-      <PartnerAlliance />
-      <Testimonials />
-      {/* <CTA/>/ */}
-      <Contact />
-      <Footer />
-      <SignaturePopup />
+    <TitanHorizonLoader/>
+    <Navbar/>
+   <Hero/>
+   {/* <SearchBar/> */}
+   <Properties/>
+   {/* <AboutSection/> */}
+   <AboutPage/>
+   <Services/>
+   <PartnerAlliance/>
+   <Testimonials/>
+   {/* <CTA/>/ */}
+   <Contact/>
+   <Footer/>
+<SignaturePopup/>
     </>
   );
 }
