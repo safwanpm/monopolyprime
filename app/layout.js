@@ -117,9 +117,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LenisWrapper>
+        
           {children}
-        </LenisWrapper>
+    
         
       </body>
     </html>

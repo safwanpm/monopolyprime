@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 
 const TitanMonolithFooter = () => {
   const footerRef = useRef(null);
@@ -172,12 +173,13 @@ const TitanMonolithFooter = () => {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
               <Globe size={14} className="text-amber-500" />
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">
-                Market Node: SHJ-25.2
-              </span>
+              <Link href={'https://www.instagram.com/conceptra_/'} 
+              className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40">
+                Conceptra
+              </Link>
             </div>
             <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">
-              © 2026 TITAN APEX GROUP
+              © 2026 MonopolyPrimeProperties
             </p>
           </div>
 
