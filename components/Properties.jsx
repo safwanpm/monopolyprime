@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
@@ -12,6 +13,10 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import Image from "next/image";
+
+/* =========================
+   PROPERTY DATA
+========================= */
 
 const properties = [
   {
@@ -49,34 +54,35 @@ const properties = [
   },
 ];
 
+/* =========================
+   PROPERTY CARD
+========================= */
+
 const PropertyCard = ({ prop, index }) => {
   const cardRef = useRef(null);
   const iconRef = useRef(null);
 
+  // Magnetic effect (client only)
   useEffect(() => {
-    const isTouchDevice =
-      typeof window !== "undefined" &&
-      ("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
-    if (isTouchDevice) return; // ❌ Disable magnetic effect on iOS
+    if (!cardRef.current || !iconRef.current) return;
 
     const card = cardRef.current;
     const icon = iconRef.current;
-    if (!card || !icon) return;
 
     const xTo = gsap.quickTo(icon, "x", {
       duration: 0.6,
       ease: "power3.out",
     });
+
     const yTo = gsap.quickTo(icon, "y", {
       duration: 0.6,
       ease: "power3.out",
     });
 
     const handleMouseMove = (e) => {
-      const { left, top, width, height } = card.getBoundingClientRect();
-      const x = e.clientX - (left + width / 2);
-      const y = e.clientY - (top + height / 2);
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - (rect.left + rect.width / 2);
+      const y = e.clientY - (rect.top + rect.height / 2);
 
       xTo(x * 0.2);
       yTo(y * 0.2);
@@ -107,19 +113,14 @@ const PropertyCard = ({ prop, index }) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       viewport={{ once: true }}
-      className="group relative flex flex-col will-change-transform"
+      className="group relative flex flex-col"
     >
-      {/* Image Container */}
+      {/* IMAGE */}
       <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-neutral-900 border border-white/5">
-        {/* Hover animation wrapped safely */}
         <motion.div
-          whileHover={
-            typeof window !== "undefined" && window.innerWidth > 768
-              ? { scale: 1.1 }
-              : {}
-          }
+          whileHover={{ scale: 1.1 }}
           transition={{ duration: 1.2 }}
-          className="absolute inset-0 will-change-transform"
+          className="absolute inset-0 md:hover:scale-110 transition-transform duration-700"
         >
           <Image
             src={prop.image}
@@ -127,12 +128,12 @@ const PropertyCard = ({ prop, index }) => {
             fill
             priority={index === 0}
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover opacity-60 group-hover:opacity-100 grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700"
+            className="object-cover opacity-60 md:group-hover:opacity-100 grayscale-[0.5] md:group-hover:grayscale-0 transition-all duration-700"
           />
         </motion.div>
 
-        {/* Top Badges */}
-        <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-10">
+        {/* BADGES */}
+        <div className="absolute top-6 left-6 right-6 flex justify-between z-10">
           <div className="bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
             <span className="text-amber-500 text-[9px] font-black uppercase tracking-[0.2em]">
               {prop.tag}
@@ -140,29 +141,20 @@ const PropertyCard = ({ prop, index }) => {
           </div>
 
           <div className="bg-amber-500 px-3 py-1.5 rounded-lg shadow-xl shadow-amber-500/20">
-            <span className="text-black font-bold text-xs">{prop.price}</span>
+            <span className="text-black font-bold text-xs">
+              {prop.price}
+            </span>
           </div>
         </div>
       </div>
 
-      {/* Floating Card */}
+      {/* FLOATING CONTENT */}
       <div className="relative -mt-24 mx-4 z-10">
-        <div
-          className="
-            bg-[#0a0a0a]/95 
-            backdrop-blur-md 
-            md:backdrop-blur-3xl 
-            border border-white/10 
-            p-6 
-            rounded-[2rem] 
-            shadow-2xl 
-            transition-all duration-500 
-            group-hover:border-amber-500/40
-          "
-        >
-          {/* Header */}
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] shadow-2xl transition-all duration-500 md:group-hover:border-amber-500/40">
+          
+          {/* HEADER */}
           <div className="flex justify-between items-start gap-4">
-            <div className="flex-1">
+            <div>
               <div className="flex items-center gap-2 text-amber-500/80 mb-1">
                 <MapPin size={12} />
                 <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
@@ -170,55 +162,27 @@ const PropertyCard = ({ prop, index }) => {
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-white leading-tight group-hover:text-amber-500 transition-colors">
+              <h3 className="text-xl font-bold text-white md:group-hover:text-amber-500 transition-colors">
                 {prop.title}
               </h3>
             </div>
 
             <div
               ref={iconRef}
-              className="bg-white text-black p-3 rounded-full flex-shrink-0 group-hover:bg-amber-500 transition-colors cursor-pointer will-change-transform"
+              className="bg-white text-black p-3 rounded-full md:group-hover:bg-amber-500 transition-colors"
             >
               <ArrowUpRight size={18} />
             </div>
           </div>
 
-          {/* Stats */}
+          {/* STATS */}
           <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-3 gap-2">
-            <div className="flex flex-col">
-              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">
-                Beds
-              </span>
-              <div className="flex items-center gap-1.5 text-white font-bold">
-                <BedDouble size={14} className="text-amber-500/50" />
-                {prop.beds}
-              </div>
-            </div>
-
-            <div className="flex flex-col border-x border-white/5 px-4">
-              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">
-                Baths
-              </span>
-              <div className="flex items-center gap-1.5 text-white font-bold">
-                <Bath size={14} className="text-amber-500/50" />
-                {prop.baths}
-              </div>
-            </div>
-
-            <div className="flex flex-col pl-2">
-              <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">
-                Size
-              </span>
-              <div className="text-white font-bold text-xs whitespace-nowrap">
-                {prop.sqft}
-                <span className="text-[9px] text-neutral-500 tracking-tighter">
-                  SQFT
-                </span>
-              </div>
-            </div>
+            <Stat label="Beds" value={prop.beds} icon={<BedDouble size={14} />} />
+            <Stat label="Baths" value={prop.baths} icon={<Bath size={14} />} bordered />
+            <Stat label="Size" value={`${prop.sqft} SQFT`} />
           </div>
 
-          {/* Actions */}
+          {/* ACTIONS */}
           <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-2 gap-3">
             <a
               href={`https://wa.me/971588017015?text=I'm interested in ${prop.title}`}
@@ -232,7 +196,7 @@ const PropertyCard = ({ prop, index }) => {
 
             <a
               href="tel:+971588017015"
-              className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black hover:border-amber-500 transition-all duration-300"
+              className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black transition-all duration-300"
             >
               <Phone size={14} fill="currentColor" />
               Call Now
@@ -244,48 +208,79 @@ const PropertyCard = ({ prop, index }) => {
   );
 };
 
+/* =========================
+   STAT COMPONENT
+========================= */
+
+const Stat = ({ label, value, icon, bordered }) => (
+  <div className={`flex flex-col ${bordered ? "border-x border-white/5 px-4" : ""}`}>
+    <span className="text-[8px] text-neutral-500 uppercase font-black tracking-[0.2em]">
+      {label}
+    </span>
+    <div className="flex items-center gap-1.5 text-white font-bold text-xs">
+      {icon && <span className="text-amber-500/50">{icon}</span>}
+      {value}
+    </div>
+  </div>
+);
+
+/* =========================
+   MAIN COMPONENT
+========================= */
+
 const PropertyCollection = () => {
+  const portals = [
+    {
+      name: "Dubizzle",
+      tag: "Market Dominance",
+      desc: "Explore our verified collection on the region's largest marketplace.",
+      href: "https://uae.dubizzle.com/ar/property-agencies/monopoly-prime-properties-10357/",
+      color: "from-red-500/20",
+    },
+    {
+      name: "Bayut",
+      tag: "Elite Standards",
+      desc: "Deep-dive into our exclusive inventory with TruCheck™ certification.",
+      href: "https://www.bayut.com/companies/monopoly-prime-properties-105666/",
+      color: "from-emerald-500/20",
+    },
+  ];
+
   return (
-    <section className="bg-[#050505] py-24 px-6 lg:px-12 selection:bg-amber-500 selection:text-black">
+    <section className="bg-[#050505] py-24 px-6 lg:px-12">
       <div className="max-w-7xl mx-auto">
-        {/* --- HEADER --- */}
+
+        {/* HEADER */}
         <header className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-          <div className="space-y-4">
+          <div>
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
-              className="h-1 bg-amber-500"
+              className="h-1 bg-amber-500 mb-6"
             />
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase leading-[0.9]">
               Curated <br />
-              <span
-                className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 to-neutral-500"
-                style={{ WebkitTextStroke: "1px rgba(255,255,255,0.05)" }}
-              >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 to-neutral-500">
                 Masterpieces
               </span>
             </h2>
           </div>
 
-          <button className="flex items-center gap-3 text-neutral-500 hover:text-white transition-all uppercase text-[10px] font-black tracking-[0.3em] group">
+          <button className="flex items-center gap-3 text-neutral-500 hover:text-white uppercase text-[10px] font-black tracking-[0.3em] group">
             All Listings
-            <ChevronRight
-              size={16}
-              className="text-amber-500 group-hover:translate-x-1 transition-transform"
-            />
+            <ChevronRight size={16} className="text-amber-500 group-hover:translate-x-1 transition-transform" />
           </button>
         </header>
 
-        {/* --- PROPERTY GRID --- */}
+        {/* PROPERTY GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mb-24">
           {properties.map((prop, idx) => (
             <PropertyCard key={prop.id} prop={prop} index={idx} />
           ))}
         </div>
 
-        {/* --- NEW: LARGE SIGNATURE FOOTER --- */}
-        {/* --- THE SIGNATURE PORTAL BLOCK --- */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* PORTAL SECTION (Bayut + Dubizzle) */}
+       <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             {
               name: "Dubizzle",
