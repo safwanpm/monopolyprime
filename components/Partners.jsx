@@ -92,8 +92,8 @@ const PartnerNexus = () => {
       ref={containerRef}
       className="bg-[#020202] py-24 lg:py-40 overflow-hidden relative"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[300px] md:h-[500px] bg-primary/10 blur-[100px] md:blur-[160px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-white/[0.03] blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-16 lg:mb-28 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
