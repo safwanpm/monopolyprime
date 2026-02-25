@@ -422,7 +422,7 @@ const AllCollectionsPage = () => {
 
 
 
-        <section className="pt-40 border-b border-white/5  mx-auto max-w-7xl px-6 md:px-0">
+        <section className="pt-40 border-b border-white/5  mx-auto max-w-7xl px-6 lg:px-0">
 
 
 
@@ -439,7 +439,7 @@ const AllCollectionsPage = () => {
 
             <h1 className="relative z-10 flex flex-col leading-[0.9] md:leading-[0.8]">
               {/* First Row: Swapping to flex-wrap for smaller screens */}
-              <span className="flex flex-wrap items-center gap-x-3 md:gap-4 text-3xl md:text-8xl lg:text-[90px] font-light tracking-tight text-white/90">
+              <span className="flex flex-wrap items-center gap-x-3 md:gap-4 text-3xl md:text-6xl lg:text-[90px] font-light tracking-tight text-white/90">
                 THE
                 <motion.span
                   initial={{ width: 0, opacity: 0 }}
@@ -452,7 +452,7 @@ const AllCollectionsPage = () => {
               </span>
 
               {/* Second Row: Fluid font size for mobile */}
-              <span className="text-[12vw] md:text-9xl lg:text-[100px] font-black tracking-tighter text-white flex items-baseline">
+              <span className="text-[12vw] md:text-7xl lg:text-[100px] font-black tracking-tighter text-white flex items-baseline">
                 COLLECTION
                 <motion.span
                   animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
@@ -486,7 +486,7 @@ const AllCollectionsPage = () => {
 
 
 
-        <section className="py-12 mx-auto max-w-7xl px-6 md:px-0">
+        <section className="py-12 mx-auto max-w-7xl px-6 lg:px-0">
 
 
 
