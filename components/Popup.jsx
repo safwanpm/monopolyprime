@@ -92,7 +92,7 @@ const MonopolyAbsoluteGlass = () => {
             whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setOpen(true)}
-            className="group relative flex items-center bg-white/[0.03] backdrop-blur-[40px] border border-white/20 rounded-full pl-5 pr-3 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.4)] cursor-pointer hover:border-amber-500/50 transition-all duration-700"
+            className="group relative flex items-center bg-white/[0.03] backdrop-blur-[40px] border border-white/20 rounded-full pl-5 pr-3 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.4)] cursor-pointer hover:border-primary/50 transition-all duration-700"
           >
             <div className="rounded-full px-4 py-2 mr-6 group-hover:bg-primary transition-all duration-500">
               <Image
@@ -113,7 +113,7 @@ const MonopolyAbsoluteGlass = () => {
               </span>
             </div>
 
-            <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+            <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
               <ArrowUpRight size={18} />
             </div>
 

@@ -11,12 +11,12 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
+import Link from "next/link";
 
 const ContactSignature = () => {
   return (
     <section className="relative bg-[#020202] min-h-screen text-white py-20 px-6 lg:px-24 flex flex-col justify-center overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
-
         {/* --- BIG STATEMENT --- */}
         <div className="mb-20">
           <motion.div
@@ -40,13 +40,10 @@ const ContactSignature = () => {
 
         {/* --- CONTACT CARDS --- */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-
           {/* WhatsApp */}
-          <motion.a
-            href="https://wa.me/yournumber"
-            whileHover={{ y: -10 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
+          <Link
+            href="https://wa.me/971588017015"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all backdrop-blur-xl will-change-transform"
           >
             <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
               <MessageCircle size={28} />
@@ -60,14 +57,12 @@ const ContactSignature = () => {
             <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
               Chat Now <ArrowUpRight size={16} />
             </div>
-          </motion.a>
+          </Link>
 
           {/* Phone */}
-          <motion.a
-            href="tel:+9716XXXXXXX"
-            whileHover={{ y: -10 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
+          <Link
+            href="tel:+971588017015"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all backdrop-blur-xl will-change-transform"
           >
             <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 group-hover:bg-primary group-hover:text-black transition-all">
               <Phone size={28} />
@@ -79,16 +74,15 @@ const ContactSignature = () => {
             </p>
 
             <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
-              +971 6 5XX XXXX <ArrowUpRight size={16} />
+              +971 588 017 015 <ArrowUpRight size={16} />
             </div>
-          </motion.a>
+          </Link>
 
           {/* Email */}
-          <motion.a
-            href="mailto:info@yourcompany.com"
-            whileHover={{ y: -10 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
+
+          <Link
+            href="mailto:info@monopolyprime.ae"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all backdrop-blur-xl will-change-transform"
           >
             <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 group-hover:bg-primary group-hover:text-black transition-all">
               <Mail size={28} />
@@ -100,24 +94,33 @@ const ContactSignature = () => {
             </p>
 
             <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
-              info@titan.ae <ArrowUpRight size={16} />
+              info@monopolyprime.ae <ArrowUpRight size={16} />
             </div>
-          </motion.a>
+          </Link>
         </div>
 
         {/* --- FOOTER --- */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
-          <div className="flex items-start gap-4">
-            <MapPin className="text-primary mt-1" size={20} />
+          <Link
+            href="https://www.google.com/maps/search/?api=1&query=Executive+Tower+Aljada+Sharjah+UAE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-4 group"
+          >
+            <MapPin
+              className="text-primary mt-1 group-hover:scale-110 transition-transform"
+              size={20}
+            />
             <div>
               <h4 className="font-bold uppercase tracking-widest text-sm">
                 Our Headquarters
               </h4>
               <p className="text-neutral-500 text-sm">
-                Executive Tower, Aljada, Sharjah, UAE
+                Al Shaqaaq Building - 402 - Al Taawun St - Al Mamzar <br/> Sharjah - United Arab Emirates
               </p>
             </div>
-          </div>
+          </Link>
+         
 
           <div className="flex gap-8">
             <a
@@ -126,18 +129,18 @@ const ContactSignature = () => {
             >
               <Instagram size={20} />
             </a>
-            <a
-              href="#"
+            <Link
+              href="https://www.linkedin.com/company/monopoly-prime-properties/"
               className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all"
             >
               <Linkedin size={20} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Glow */}
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
     </section>
   );
 };

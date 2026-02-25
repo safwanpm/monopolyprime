@@ -1,6 +1,7 @@
 'use client'
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 const CTA = () => {
   const ref = useRef(null);
@@ -80,13 +81,12 @@ const CTA = () => {
               Book a Free Consultation
             </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+            <Link  href="tel:+971588017015"
+             
               className="btn-outline text-xs tracking-wider"
             >
-              Call +971 6 XXX XXXX
-            </motion.button>
+              Call  +971 588 017 015"
+            </Link>
           </div>
         </div>
       </motion.div>

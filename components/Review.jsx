@@ -7,7 +7,7 @@ const MonopolySignatureTrust = () => {
   return (
     <section className="py-24 bg-[#050505] flex justify-center px-6 relative overflow-hidden">
       {/* Subtle Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -17,7 +17,7 @@ const MonopolySignatureTrust = () => {
         className="relative group max-w-6xl w-full"
       >
         {/* Animated Border Gradient Layer */}
-        <div className="absolute -inset-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-[2.5rem] opacity-50 group-hover:via-amber-500/40 transition-all duration-700" />
+        <div className="absolute -inset-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-[2.5rem] opacity-50 group-hover:via-primary/40 transition-all duration-700" />
 
         {/* Main Glass Body */}
         <div className="relative bg-[#0A0A0A]/80 backdrop-blur-3xl rounded-[2.5rem] p-1 md:p-2 overflow-hidden">
@@ -28,7 +28,7 @@ const MonopolySignatureTrust = () => {
               <div className="relative mb-2">
                 {/* Custom SVG Laurel Wreaths for a "Signature" Look */}
                 <div className="absolute -left-12 top-1/2 -translate-y-1/2 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-                  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" className="text-amber-500">
+                  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" className="text-primary">
                     <path d="M35 10C25 15 10 30 5 50" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                     <circle cx="36" cy="10" r="2" fill="currentColor"/>
                     <circle cx="30" cy="22" r="2" fill="currentColor"/>
@@ -41,7 +41,7 @@ const MonopolySignatureTrust = () => {
                 </h2>
 
                 <div className="absolute -right-12 top-1/2 -translate-y-1/2 opacity-20 group-hover:opacity-40 transition-opacity duration-700 scale-x-[-1]">
-                  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" className="text-amber-500">
+                  <svg width="40" height="60" viewBox="0 0 40 60" fill="none" className="text-primary">
                     <path d="M35 10C25 15 10 30 5 50" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                     <circle cx="36" cy="10" r="2" fill="currentColor"/>
                     <circle cx="30" cy="22" r="2" fill="currentColor"/>
@@ -54,7 +54,7 @@ const MonopolySignatureTrust = () => {
                   <Star 
                     key={i} 
                     size={16} 
-                    className={i < 4 ? "fill-amber-500 text-amber-500" : "text-white/10"} 
+                    className={i < 4 ? "fill-primary text-primary" : "text-white/10"} 
                   />
                 ))}
               </div>
@@ -66,7 +66,7 @@ const MonopolySignatureTrust = () => {
             {/* 2. CORE SLOGAN - The "Matters" Phrasing */}
             <div className="flex-1 text-center lg:text-left">
               <p className="text-2xl md:text-4xl font-light text-white leading-tight tracking-tight">
-                It <span className="text-amber-500  font-medium group-hover:text-amber-400 transition-colors">Matters</span> which <br className="hidden md:block" />
+                It <span className="text-primary  font-medium group-hover:text-primary/95 transition-colors">Matters</span> which <br className="hidden md:block" />
                 <span className="font-bold tracking-tighter uppercase text-3xl md:text-5xl">Agency</span> you Trust
               </p>
               
@@ -89,10 +89,10 @@ const MonopolySignatureTrust = () => {
               <div className="text-center lg:text-right group-hover:translate-y-[-2px] transition-transform duration-500">
                 {/* <p className="text-3xl font-black text-white leading-none">52+</p> */}
                 <div className="flex items-center gap-2 group/btn cursor-pointer mt-1">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover/btn:text-amber-500 transition-colors border-b border-gray-800 pb-0.5">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 group-hover/btn:text-primary transition-colors border-b border-gray-800 pb-0.5">
                     Verified Reviews
                   </span>
-                  <ArrowUpRight size={12} className="text-gray-500 group-hover/btn:text-amber-500" />
+                  <ArrowUpRight size={12} className="text-gray-500 group-hover/btn:text-primary" />
                 </div>
               </div>
             </div>

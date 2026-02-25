@@ -115,7 +115,7 @@ const AboutPage = () => {
     >
       {/* --- SECTION 1: HERO MANIFESTO --- */}
       <section className="relative h-screen flex flex-col justify-center px-6 lg:px-24 border-b border-white/5">
-        <div className="absolute top-0 right-0 w-1/3 h-screen bg-amber-500/5 blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-1/3 h-screen bg-primary/5 blur-[120px] pointer-events-none" />
 
         <div className="max-w-5xl z-10">
           <motion.div
@@ -169,7 +169,7 @@ const AboutPage = () => {
               <h2 className="reveal-text text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
                 Our <span className="text-primary">Credo.</span>
               </h2>
-              <p className="reveal-text text-neutral-400 text-lg leading-relaxed max-w-lg border-l border-amber-500/30 pl-8">
+              <p className="reveal-text text-neutral-400 text-lg leading-relaxed max-w-lg border-l border-primary/30 pl-8">
                 We believe that real estate isn't just about square footage—
                 it's about the precision of the transaction and the legacy of
                 the location.
@@ -193,7 +193,7 @@ const AboutPage = () => {
             {milestones.map((item, idx) => (
               <div
                 key={idx}
-                className="milestone-card group relative min-h-[350px] rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 p-12 overflow-hidden transition-all duration-500 hover:border-amber-500/40 hover:bg-[#0c0c0c]"
+                className="milestone-card group relative min-h-[350px] rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 p-12 overflow-hidden transition-all duration-500 hover:border-primary/40 hover:bg-[#0c0c0c]"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
 
@@ -212,7 +212,7 @@ const AboutPage = () => {
                   </div>
                 </div>
 
-                <span className="absolute bottom-8 right-8 text-white/5 font-black text-6xl group-hover:text-amber-500/10 transition-colors">
+                <span className="absolute bottom-8 right-8 text-white/5 font-black text-6xl group-hover:text-primary/10 transition-colors">
                   {item.id}
                 </span>
               </div>

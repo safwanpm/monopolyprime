@@ -189,7 +189,7 @@ const ServiceMatrix = () => {
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`apex-card group relative min-h-[450px] rounded-[3rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-amber-500/50 ${item.span}`}
+              className={`apex-card group relative min-h-[450px] rounded-[3rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-primary/50 ${item.span}`}
             >
               <div className="absolute inset-0 z-0 pointer-events-none">
                 <img
@@ -200,7 +200,7 @@ const ServiceMatrix = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
               </div>
 
-              <span className="absolute top-10 right-10 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter group-hover:text-amber-500/5 transition-colors">
+              <span className="absolute top-10 right-10 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter group-hover:text-primary/5 transition-colors">
                 {item.id}
               </span>
 
@@ -224,7 +224,7 @@ const ServiceMatrix = () => {
 
                   <div className="pt-4 flex items-center gap-3">
                     <div className="h-[1px] w-12 bg-primary" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500/60 group-hover:text-primary transition-colors">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/60 group-hover:text-primary transition-colors">
                       Operational Excellence
                     </span>
                   </div>

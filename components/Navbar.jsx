@@ -123,7 +123,7 @@ const Navbar = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2.5 rounded-full bg-primary hover:bg-amber-400 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
+              className="ml-4 px-6 py-2.5 rounded-full bg-primary hover:bg-primary text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
             >
               Book Viewing
             </motion.button>

@@ -24,10 +24,10 @@ if (typeof window !== "undefined") {
 }
 
 const crew = [
-  { name: "Osama Yacoub", role: "Executive Strategist", img: "/images/crew1.webp" },
-  { name: "Lead Advisor", role: "Dubai Portfolio", img: "/images/crew2.webp" },
-  { name: "Market Analyst", role: "Sharjah Corridor", img: "/images/crew3.webp" },
-  { name: "Legal Counsel", role: "Acquisition Protocol", img: "/images/crew4.webp" },
+  { name: "Osama Yacoub", role: "Executive Strategist", img: "/images/crew1.jpeg" },
+  { name: "Lead Advisor", role: "Dubai Portfolio", img: "/images/crew1.jpeg" },
+  { name: "Market Analyst", role: "Sharjah Corridor", img: "/images/crew1.jpeg" },
+  { name: "Legal Counsel", role: "Acquisition Protocol", img: "/images/crew1.jpeg" },
 ];
 
 const SignatureAbout = () => {
@@ -75,17 +75,17 @@ const SignatureAbout = () => {
   return (
     <>
       <Navbar />
-      <main ref={containerRef} className="bg-[#050505] text-white selection:bg-amber-500/30">
+      <main ref={containerRef} className="bg-[#050505] text-white selection:bg-primary/30">
 
         {/* --- 1. HERO: THE MONOLITH --- */}
         <section className="relative min-h-screen flex flex-col justify-center px-6 lg:px-12 overflow-hidden">
           {/* Ambient signature glow */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/[0.03] blur-[150px] rounded-full" />
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/[0.03] blur-[150px] rounded-full" />
 
           <div className="max-w-7xl px-6 md:px-0 mx-auto w-full z-10">
             <div className="flex items-center gap-4 mb-8">
-              <div className="h-[1px] w-12 bg-amber-500" />
-              <span className="text-amber-500 font-bold tracking-[0.5em] uppercase text-[10px]">Est. 2016</span>
+              <div className="h-[1px] w-12 bg-primary" />
+              <span className="text-primary font-bold tracking-[0.5em] uppercase text-[10px]">Est. 2016</span>
             </div>
 
             <h1 className="hero-title text-[clamp(3rem,12vw,12rem)] font-black tracking-tighter leading-[0.8] mb-12 uppercase">
@@ -98,7 +98,7 @@ const SignatureAbout = () => {
                 Monopoly Prime Properties is the definitive architectural bridge between elite investors and the UAE's most iconic developments.
               </p>
               <div className="animate-bounce p-4 rounded-full border border-white/10">
-                <ArrowDown size={20} className="text-amber-500" />
+                <ArrowDown size={20} className="text-primary" />
               </div>
             </div>
           </div>
@@ -107,36 +107,36 @@ const SignatureAbout = () => {
         {/* --- 2. THE VISIONARY AXIS (Mission/Vision) --- */}
         <section className="reveal-section py-32 lg:py-48 px-6 lg:px-12 relative overflow-hidden bg-[#050505]">
           {/* Background Decorative Element: The "Signature" Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-amber-500/[0.03] blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.03] blur-[150px] rounded-full pointer-events-none" />
 
-          <div className="max-w-[1440px] mx-auto relative">
+          <div className="max-w-7xl mx-auto px-6 md:px-0 relative">
 
             {/* The Central "Golden Thread" - Vertical Divider on Desktop */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-amber-500/20 to-transparent z-20" />
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent z-20" />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-white/10 rounded-[4rem] overflow-hidden backdrop-blur-3xl bg-white/[0.02]">
 
               {/* --- MISSION: THE COMPASS --- */}
               <div className="relative p-12 lg:p-24 flex flex-col justify-center group border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
                 {/* Background Hover Text */}
-                <span className="absolute -top-10 -left-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-amber-500/[0.03] transition-colors duration-700">
+                <span className="absolute -top-10 -left-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-primary/[0.03] transition-colors duration-700">
                   01
                 </span>
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-6 mb-12">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-amber-500/50 transition-all duration-700">
+                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all duration-700">
                       <Compass
-                        className="text-amber-500 transition-transform group-hover:rotate-[135deg] duration-1000"
+                        className="text-primary transition-transform group-hover:rotate-[135deg] duration-1000"
                         size={32}
                       />
                     </div>
-                    <div className="h-px w-12 bg-amber-500/30" />
+                    <div className="h-px w-12 bg-primary/30" />
                   </div>
 
                   <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
                     OUR <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-200 to-amber-500 italic font-serif font-light lowercase">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-primary  font-light ">
                       Mission.
                     </span>
                   </h2>
@@ -148,7 +148,7 @@ const SignatureAbout = () => {
                   </p>
 
                   <div className="mt-12 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                    <button className="flex items-center gap-2 text-amber-500 font-bold uppercase tracking-[0.3em] text-[10px]">
+                    <button className="flex items-center gap-2 text-primary font-bold uppercase tracking-[0.3em] text-[10px]">
                       Precision Protocol <ArrowUpRight size={14} />
                     </button>
                   </div>
@@ -158,24 +158,24 @@ const SignatureAbout = () => {
               {/* --- VISION: THE EYE --- */}
               <div className="relative p-12 lg:p-24 flex flex-col justify-center group overflow-hidden">
                 {/* Background Hover Text */}
-                <span className="absolute -bottom-10 -right-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-amber-500/[0.03] transition-colors duration-700">
+                <span className="absolute -bottom-10 -right-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-primary/[0.03] transition-colors duration-700">
                   02
                 </span>
 
                 <div className="relative z-10 lg:pl-12">
                   <div className="flex items-center gap-6 mb-12">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-amber-500/50 transition-all duration-700">
+                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all duration-700">
                       <Eye
-                        className="text-amber-500 transition-transform group-hover:scale-125 duration-700"
+                        className="text-primary transition-transform group-hover:scale-125 duration-700"
                         size={32}
                       />
                     </div>
-                    <div className="h-px w-12 bg-amber-500/30" />
+                    <div className="h-px w-12 bg-primary/30" />
                   </div>
 
                   <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
                     OUR <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-400 to-white italic font-serif font-light lowercase">
+                    <span className="text-primary bg-clip-text bg-gradient-to-r from-white via-neutral-400 to-white font-light ">
                       Vision.
                     </span>
                   </h2>
@@ -201,9 +201,9 @@ const SignatureAbout = () => {
 
         {/* --- 4. THE CREW OF STRATEGISTS --- */}
         <section className="reveal-section py-40 px-6 lg:px-12 bg-white/[0.02]">
-          <div className="max-w-[1440px] mx-auto">
+          <div className="max-w-7xl  mx-auto px-6 md:px-0">
             <div className="mb-24">
-              <h2 className="text-7xl md:text-9xl font-black uppercase tracking-tighter">The <span className="text-amber-500">Crew.</span></h2>
+              <h2 className="text-7xl md:text-9xl font-black uppercase tracking-tighter">The <span className="text-primary">Crew.</span></h2>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
@@ -216,7 +216,7 @@ const SignatureAbout = () => {
                   <Image src={member.img} alt={member.name} fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                   <div className="absolute bottom-8 left-8">
-                    <p className="text-amber-500 font-bold text-[10px] uppercase tracking-widest mb-2">{member.role}</p>
+                    <p className="text-primary font-bold text-[10px] uppercase tracking-widest mb-2">{member.role}</p>
                     <h4 className="text-2xl font-bold tracking-tight">{member.name}</h4>
                   </div>
                 </motion.div>

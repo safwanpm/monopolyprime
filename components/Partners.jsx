@@ -125,7 +125,7 @@ const PartnerNexus = () => {
       className="bg-[#020202] py-32 overflow-hidden relative"
     >
       {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       {/* HEADER */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-20 relative z-10">
@@ -163,10 +163,10 @@ const PartnerNexus = () => {
           {partnerLogos.map((partner, idx) => (
             <div
               key={`${partner.id}-${idx}`}
-              className="glass-slate group relative flex-shrink-0 w-72 h-44 rounded-[2.5rem] bg-white border border-white/5 backdrop-blur-1xl flex items-center justify-center p-12 transition-colors hover:border-amber-500/30 overflow-hidden"
+              className="glass-slate group relative flex-shrink-0 w-72 h-44 rounded-[2.5rem] bg-white border border-white/5 backdrop-blur-1xl flex items-center justify-center p-12 transition-colors hover:border-primary/30 overflow-hidden"
               style={{ perspective: "1000px" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               <img
                 src={partner.url}

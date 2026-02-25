@@ -11,30 +11,29 @@ if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
 const testimonials = [
   {
     id: "01",
-    name: "Khalid Al-Hashemi",
-    location: "Sharjah Waterfront",
+    name: "Ashna Shameer",
+    location: "Sharjah, UAE",
     comment:
-      "The precision in their market analysis is surgical. They secured a legacy asset that outperformed all benchmarks.",
+      "Wonderful rental experience. Mr. Osama was professional, responsive, and extremely helpful from paperwork to maintenance. Truly appreciate his support.",
     image: "/images/service1.webp",
   },
   {
     id: "02",
-    name: "Elena Rodriguez",
-    location: "Dubai Hills Estate",
+    name: "Mjd Alzoubi",
+    location: "Sharjah, UAE",
     comment:
-      "Signature real estate requires a signature mindset. Their team delivered strategic insight that is rare in the Emirates.",
+      "Best rental experience I’ve had. Osama Yacoub was honest, professional, and handled everything promptly. Highly recommended.",
     image: "/images/service2.webp",
   },
   {
     id: "03",
-    name: "Omar Bin Sulayem",
-    location: "Aljada, Sharjah",
+    name: "Saurav Bhatia",
+    location: "Sharjah, UAE",
     comment:
-      "Their off-plan consultations are the gold standard. We secured units in a pre-launch phase with immediate equity growth.",
-    image: "/images/service3.webp",
+      "Great experience throughout. Osama was helpful, responsive, and made the 1 BHK process smooth and hassle-free. Reliable agent.",
+    image: "/images/property2.webp",
   },
 ];
-
 const TitanAbsolute = () => {
   const containerRef = useRef(null);
 
@@ -119,7 +118,7 @@ const TitanAbsolute = () => {
       ref={containerRef}
       className="bg-[#020202] py-24 px-6 lg:px-24 relative overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-full bg-amber-500/[0.02] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-primary/[0.02] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* HEADER */}
@@ -137,7 +136,7 @@ const TitanAbsolute = () => {
           {testimonials.map((item, idx) => (
             <div
               key={idx}
-              className="absolute-card group relative min-h-[440px] rounded-[2.5rem] bg-[#0c0c0c] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-amber-500/50"
+              className="absolute-card group relative min-h-[440px] rounded-[2.5rem] bg-[#0c0c0c] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-primary/50"
             >
               {/* IMAGE BACKDROP */}
               <div className="absolute inset-0 z-0 overflow-hidden">

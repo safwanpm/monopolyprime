@@ -140,7 +140,7 @@ const PropertyCard = ({ prop, index }) => {
             </span>
           </div>
 
-          <div className="bg-primary px-3 py-1.5 rounded-lg shadow-xl shadow-amber-500/20">
+          <div className="bg-primary px-3 py-1.5 rounded-lg shadow-xl shadow-primary/20">
             <span className="text-black font-bold text-xs">
               {prop.price}
             </span>
@@ -150,12 +150,12 @@ const PropertyCard = ({ prop, index }) => {
 
       {/* FLOATING CONTENT */}
       <div className="relative -mt-24 mx-4 z-10">
-        <div className="bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] shadow-2xl transition-all duration-500 md:group-hover:border-amber-500/40">
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] shadow-2xl transition-all duration-500 md:group-hover:border-primary/40">
           
           {/* HEADER */}
           <div className="flex justify-between items-start gap-4">
             <div>
-              <div className="flex items-center gap-2 text-amber-500/80 mb-1">
+              <div className="flex items-center gap-2 text-primary/80 mb-1">
                 <MapPin size={12} />
                 <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
                   {prop.location}
@@ -218,7 +218,7 @@ const Stat = ({ label, value, icon, bordered }) => (
       {label}
     </span>
     <div className="flex items-center gap-1.5 text-white font-bold text-xs">
-      {icon && <span className="text-amber-500/50">{icon}</span>}
+      {icon && <span className="text-primary/50">{icon}</span>}
       {value}
     </div>
   </div>
@@ -306,7 +306,7 @@ const PropertyCollection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1, duration: 0.7 }}
               viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 p-8 transition-all duration-500 md:hover:border-amber-500/40 md:hover:bg-neutral-900/40 will-change-transform"
+              className="group relative overflow-hidden rounded-[2.5rem] bg-[#0a0a0a] border border-white/5 p-8 transition-all duration-500 md:hover:border-primary/40 md:hover:bg-neutral-900/40 will-change-transform"
             >
               {/* Gradient Glow (Desktop Only for iOS safety) */}
               <div
@@ -319,7 +319,7 @@ const PropertyCollection = () => {
                   <div className="flex items-center gap-3">
                     <div className="flex gap-1">
                       <span className="h-1 w-4 rounded-full bg-primary" />
-                      <span className="h-1 w-1 rounded-full bg-amber-500/40" />
+                      <span className="h-1 w-1 rounded-full bg-primary/40" />
                     </div>
                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">
                       {portal.tag}
