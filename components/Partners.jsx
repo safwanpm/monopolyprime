@@ -102,9 +102,9 @@ const PartnerNexus = () => {
               <motion.div 
                 initial={{ width: 0 }}
                 whileInView={{ width: 48 }}
-                className="h-[1px] bg-amber-500" 
+                className="h-[1px] bg-primary" 
               />
-              <span className="text-amber-500 font-black tracking-[0.5em] uppercase text-[9px] md:text-[11px]">
+              <span className="text-primary font-black tracking-[0.5em] uppercase text-[9px] md:text-[11px]">
                 Collaborations
               </span>
             </div>
@@ -133,7 +133,7 @@ const PartnerNexus = () => {
             <div
               key={`${partner.id}-${idx}`}
            
-              className="glass-slate group relative flex-shrink-0 w-64 h-36 md:w-80 md:h-48 rounded-[2rem] md:rounded-[3rem] bg-white/[0.03] border border-white/10 backdrop-blur-2xl flex items-center justify-center transition-all duration-500 hover:border-amber-500/50 hover:bg-white/[0.08]"
+              className="glass-slate group relative flex-shrink-0 w-64 h-36 md:w-80 md:h-48 rounded-[2rem] md:rounded-[3rem] bg-white/[0.03] border border-white/10 backdrop-blur-2xl flex items-center justify-center transition-all duration-500 hover:border-primary/50 hover:bg-white/[0.08]"
               style={{ perspective: "1200px" }}
             >
               <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
@@ -146,7 +146,7 @@ const PartnerNexus = () => {
                 className="relative z-10 w-[80%] h-[80%] max-w-[80%] max-h-[80%] object-contain brightness-[2.5] opacity-100 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
               />
 
-              <div className="absolute inset-0 bg-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl" />
             </div>
           ))}
         </div>
