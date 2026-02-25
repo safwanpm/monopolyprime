@@ -84,6 +84,7 @@ const Hero = () => {
           </span>
           <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
             FIND THE <br />
+            
             <span className="text-primary">
               {mode === "buy" ? "INVESTMENT." : "RESIDENCE."}
             </span>

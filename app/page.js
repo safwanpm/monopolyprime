@@ -9,6 +9,7 @@ import Navbar from "@/components/Navbar";
 import PartnerAlliance from "@/components/Partners";
 import SignaturePopup from "@/components/Popup";
 import Properties from "@/components/Properties";
+import MonopolyReviews from "@/components/Review";
 import SearchBar from "@/components/SearchBar";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
@@ -26,6 +27,7 @@ export default function Home() {
    <AboutPage/>
    <Services/>
    <PartnerAlliance/>
+   <MonopolyReviews/>
    <Testimonials/>
    {/* <CTA/>/ */}
    <Contact/>

@@ -244,7 +244,7 @@ const AboutPage = () => {
         <div className="flex items-center gap-2">
           <MapPin size={12} className="text-primary" />
           <span className="text-[10px] uppercase font-bold tracking-widest italic">
-            Official Protocol HQ
+            Your Trusted
           </span>
         </div>
       </footer>
