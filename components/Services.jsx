@@ -167,8 +167,8 @@ const ServiceMatrix = () => {
         <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-[2px] w-12 bg-amber-500" />
-              <span className="text-amber-500 font-black tracking-[0.5em] uppercase text-[10px]">
+              <div className="h-[2px] w-12 bg-primary" />
+              <span className="text-primary font-black tracking-[0.5em] uppercase text-[10px]">
                 What We Do
               </span>
             </div>
@@ -179,8 +179,8 @@ const ServiceMatrix = () => {
               </span>
             </h2>
           </div>
-          <button className="flex items-center gap-4 text-white/40 hover:text-amber-500 transition-colors uppercase text-[10px] font-black tracking-[0.4em] border-b border-white/5 pb-2 mb-2">
-            Protocol Scope <Plus size={14} className="text-amber-500" />
+          <button className="flex items-center gap-4 text-white/40 hover:text-primary transition-colors uppercase text-[10px] font-black tracking-[0.4em] border-b border-white/5 pb-2 mb-2">
+            Protocol Scope <Plus size={14} className="text-primary" />
           </button>
         </header>
 
@@ -206,7 +206,7 @@ const ServiceMatrix = () => {
 
               <div className="card-inner relative z-10 h-full flex flex-col justify-between p-12 pointer-events-none">
                 <div className="flex justify-between items-start">
-                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-amber-500 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary transition-all duration-500">
                     <ArrowUpRight
                       size={20}
                       className="text-white group-hover:text-black transition-colors"
@@ -215,7 +215,7 @@ const ServiceMatrix = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <h3 className="text-4xl font-bold text-white uppercase tracking-tight group-hover:text-amber-500 transition-colors">
+                  <h3 className="text-4xl font-bold text-white uppercase tracking-tight group-hover:text-primary transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-white text-base leading-relaxed font-medium max-w-[450px] drop-shadow-lg">
@@ -223,8 +223,8 @@ const ServiceMatrix = () => {
                   </p>
 
                   <div className="pt-4 flex items-center gap-3">
-                    <div className="h-[1px] w-12 bg-amber-500" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500/60 group-hover:text-amber-500 transition-colors">
+                    <div className="h-[1px] w-12 bg-primary" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500/60 group-hover:text-primary transition-colors">
                       Operational Excellence
                     </span>
                   </div>
@@ -252,7 +252,7 @@ const ServiceMatrix = () => {
             ))}
           </div>
           <div className="text-right z-10">
-            <p className="text-amber-500 font-bold text-xs uppercase tracking-widest">
+            <p className="text-primary font-bold text-xs uppercase tracking-widest">
               Global HQ — Dubai & Sharjah
             </p>
             <p className="text-white/20 text-[10px] uppercase tracking-widest mt-2">

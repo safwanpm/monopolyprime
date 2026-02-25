@@ -75,12 +75,9 @@ const AboutPage = () => {
         const content = card.querySelector(".card-content");
 
         const move = (e) => {
-          const { left, top, width, height } =
-            card.getBoundingClientRect();
-          const x =
-            (e.clientX - left - width / 2) * 0.1;
-          const y =
-            (e.clientY - top - height / 2) * 0.1;
+          const { left, top, width, height } = card.getBoundingClientRect();
+          const x = (e.clientX - left - width / 2) * 0.1;
+          const y = (e.clientY - top - height / 2) * 0.1;
 
           gsap.to(content, {
             x,
@@ -124,7 +121,7 @@ const AboutPage = () => {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 80 }}
-            className="h-[2px] bg-amber-500 mb-12"
+            className="h-[2px] bg-primary mb-12"
           />
           <h1 className="reveal-text text-7xl md:text-[160px] font-black tracking-tighter uppercase leading-[0.75] mb-12">
             The <br />
@@ -154,7 +151,7 @@ const AboutPage = () => {
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <span className="text-amber-500 font-bold tracking-[1em] uppercase text-xs mb-4 block">
+            <span className="text-primary font-bold tracking-[1em] uppercase text-xs mb-4 block">
               Headquarters
             </span>
             <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter">
@@ -170,20 +167,23 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
             <div>
               <h2 className="reveal-text text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-8">
-                Our <span className="text-amber-500">Credo.</span>
+                Our <span className="text-primary">Credo.</span>
               </h2>
               <p className="reveal-text text-neutral-400 text-lg leading-relaxed max-w-lg border-l border-amber-500/30 pl-8">
                 We believe that real estate isn't just about square footage—
-                it's about the precision of the transaction and the legacy of the location.
+                it's about the precision of the transaction and the legacy of
+                the location.
               </p>
             </div>
 
-            <div className="relative">
+            <div className="relative ">
               <div className="relative w-full aspect-square rounded-[3rem] overflow-hidden border border-white/10">
-                <img
-                  src="./images/owner.jpeg"
+                <Image
+                  src="/images/owner.jpeg" // Note: use absolute path from public folder
                   alt="Owner"
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 transition-opacity duration-500 hover:opacity-100"
+                  fill // Makes it cover the parent container
+                  className="object-cover opacity-60 transition-opacity duration-500 hover:opacity-100"
+                  priority // Optional: if this is above-the-fold
                 />
               </div>
             </div>
@@ -198,12 +198,12 @@ const AboutPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
 
                 <div className="card-content relative z-10 h-full flex flex-col justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-amber-500 flex items-center justify-center text-black shadow-2xl transition-transform duration-500 group-hover:scale-110">
+                  <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black shadow-2xl transition-transform duration-500 group-hover:scale-110">
                     {item.icon}
                   </div>
 
                   <div>
-                    <h3 className="text-3xl font-bold mb-4 uppercase tracking-tight group-hover:text-amber-500 transition-colors">
+                    <h3 className="text-3xl font-bold mb-4 uppercase tracking-tight group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-neutral-400 text-sm leading-relaxed">
@@ -220,7 +220,34 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+      <section className="py-40 bg-primary text-black px-6 text-center relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8">
+            Ready to Commence
+          </h4>
+          <h2 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+            Let's Build <br /> Your Legacy.
+          </h2>
+          <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
+            Contact Strategists
+          </button>
+        </div>
+      </section>
+
+      <footer className="bg-[#020202] py-12 px-6 lg:px-24 flex flex-col md:flex-row justify-between items-center opacity-30 gap-6">
+        <p className="text-[10px] uppercase font-black tracking-[0.6em]">
+          {" "}
+          Sharjah &bull; UAE
+        </p>
+        <div className="flex items-center gap-2">
+          <MapPin size={12} className="text-primary" />
+          <span className="text-[10px] uppercase font-bold tracking-widest italic">
+            Official Protocol HQ
+          </span>
+        </div>
+      </footer>
       {/* --- CTA + FOOTER unchanged --- */}
     </main>
   );

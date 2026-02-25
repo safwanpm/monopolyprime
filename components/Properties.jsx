@@ -135,12 +135,12 @@ const PropertyCard = ({ prop, index }) => {
         {/* BADGES */}
         <div className="absolute top-6 left-6 right-6 flex justify-between z-10">
           <div className="bg-black/40 backdrop-blur-md border border-white/10 px-4 py-1.5 rounded-full">
-            <span className="text-amber-500 text-[9px] font-black uppercase tracking-[0.2em]">
+            <span className="text-primary text-[9px] font-black uppercase tracking-[0.2em]">
               {prop.tag}
             </span>
           </div>
 
-          <div className="bg-amber-500 px-3 py-1.5 rounded-lg shadow-xl shadow-amber-500/20">
+          <div className="bg-primary px-3 py-1.5 rounded-lg shadow-xl shadow-amber-500/20">
             <span className="text-black font-bold text-xs">
               {prop.price}
             </span>
@@ -162,14 +162,14 @@ const PropertyCard = ({ prop, index }) => {
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-white md:group-hover:text-amber-500 transition-colors">
+              <h3 className="text-xl font-bold text-white md:group-hover:text-primary transition-colors">
                 {prop.title}
               </h3>
             </div>
 
             <div
               ref={iconRef}
-              className="bg-white text-black p-3 rounded-full md:group-hover:bg-amber-500 transition-colors"
+              className="bg-white text-black p-3 rounded-full md:group-hover:bg-primary transition-colors"
             >
               <ArrowUpRight size={18} />
             </div>
@@ -188,7 +188,7 @@ const PropertyCard = ({ prop, index }) => {
               href={`https://wa.me/971588017015?text=I'm interested in ${prop.title}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black transition-all duration-300"
+              className="flex items-center justify-center gap-2 bg-[#25D366]/10 border border-[#25D366]/20 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-primary hover:text-black transition-all duration-300"
             >
               <MessageCircle size={14} fill="currentColor" />
               WhatsApp
@@ -196,7 +196,7 @@ const PropertyCard = ({ prop, index }) => {
 
             <a
               href="tel:+971588017015"
-              className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-amber-500 hover:text-black transition-all duration-300"
+              className="flex items-center justify-center gap-2 bg-white/5 border border-white/10 py-3 rounded-xl text-white text-[10px] font-black uppercase tracking-widest hover:bg-primary hover:text-black transition-all duration-300"
             >
               <Phone size={14} fill="currentColor" />
               Call Now
@@ -256,7 +256,7 @@ const PropertyCollection = () => {
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: 80 }}
-              className="h-1 bg-amber-500 mb-6"
+              className="h-1 bg-primary mb-6"
             />
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase leading-[0.9]">
               Curated <br />
@@ -268,7 +268,7 @@ const PropertyCollection = () => {
 
           <button className="flex items-center gap-3 text-neutral-500 hover:text-white uppercase text-[10px] font-black tracking-[0.3em] group">
             All Listings
-            <ChevronRight size={16} className="text-amber-500 group-hover:translate-x-1 transition-transform" />
+            <ChevronRight size={16} className="text-primary group-hover:translate-x-1 transition-transform" />
           </button>
         </header>
 
@@ -318,10 +318,10 @@ const PropertyCollection = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <div className="flex gap-1">
-                      <span className="h-1 w-4 rounded-full bg-amber-500" />
+                      <span className="h-1 w-4 rounded-full bg-primary" />
                       <span className="h-1 w-1 rounded-full bg-amber-500/40" />
                     </div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-amber-500">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary">
                       {portal.tag}
                     </span>
                   </div>
@@ -340,7 +340,7 @@ const PropertyCollection = () => {
                     {portal.desc}
                   </p>
 
-                  <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white md:group-hover:bg-amber-500 md:group-hover:text-black md:group-hover:rotate-[360deg] transition-transform duration-700 will-change-transform">
+                  <div className="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white md:group-hover:bg-primary md:group-hover:text-black md:group-hover:rotate-[360deg] transition-transform duration-700 will-change-transform">
                     <ArrowUpRight size={32} strokeWidth={1.5} />
                   </div>
                 </div>

@@ -94,7 +94,7 @@ const MonopolyAbsoluteGlass = () => {
             onClick={() => setOpen(true)}
             className="group relative flex items-center bg-white/[0.03] backdrop-blur-[40px] border border-white/20 rounded-full pl-5 pr-3 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.4)] cursor-pointer hover:border-amber-500/50 transition-all duration-700"
           >
-            <div className="rounded-full px-4 py-2 mr-6 group-hover:bg-amber-500 transition-all duration-500">
+            <div className="rounded-full px-4 py-2 mr-6 group-hover:bg-primary transition-all duration-500">
               <Image
                 src="/images/log_white.png"
                 alt="Logo"
@@ -105,7 +105,7 @@ const MonopolyAbsoluteGlass = () => {
             </div>
 
             <div className="flex flex-col mr-12">
-              <span className="text-amber-500 text-[8px] font-black uppercase tracking-[0.5em] leading-none mb-1">
+              <span className="text-primary text-[8px] font-black uppercase tracking-[0.5em] leading-none mb-1">
                 Prime
               </span>
               <span className="text-white text-[11px] font-bold tracking-[0.2em] uppercase">
@@ -113,7 +113,7 @@ const MonopolyAbsoluteGlass = () => {
               </span>
             </div>
 
-            <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+            <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all shadow-[0_0_20px_rgba(245,158,11,0.2)]">
               <ArrowUpRight size={18} />
             </div>
 
@@ -147,7 +147,7 @@ const MonopolyAbsoluteGlass = () => {
             >
               <button
                 onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 z-[110] w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-amber-500 transition-all"
+                className="absolute top-6 right-6 z-[110] w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-primary transition-all"
               >
                 <X size={18} />
               </button>
@@ -158,8 +158,8 @@ const MonopolyAbsoluteGlass = () => {
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-6 lg:mb-10">
-                    <ShieldCheck size={16} className="text-amber-500" />
-                    <span className="text-amber-500 font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[8px] lg:text-[10px]">
+                    <ShieldCheck size={16} className="text-primary" />
+                    <span className="text-primary font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[8px] lg:text-[10px]">
                       Elite Verified
                     </span>
                   </div>
@@ -179,7 +179,7 @@ const MonopolyAbsoluteGlass = () => {
                 <div className="relative z-10 mt-10 lg:mt-0 space-y-6 lg:space-y-10">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
                     <a href="tel:+971588017015" className="group flex items-center gap-3 lg:gap-4">
-                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-amber-500">
+                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-primary">
                         <Phone size={14} />
                       </div>
                       <span className="text-[10px] lg:text-sm font-bold uppercase tracking-widest text-white/60 group-hover:text-white">
@@ -188,7 +188,7 @@ const MonopolyAbsoluteGlass = () => {
                     </a>
 
                     <a href="mailto:info@monopolyprime.ae" className="group flex items-center gap-3 lg:gap-4">
-                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-amber-500">
+                      <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-primary">
                         <Globe size={14} />
                       </div>
                       <span className="text-[10px] lg:text-sm font-bold uppercase tracking-widest text-white/60 group-hover:text-white">
@@ -208,7 +208,7 @@ const MonopolyAbsoluteGlass = () => {
                 <div className="max-w-md w-full mx-auto space-y-10 lg:space-y-14">
                   <div className="space-y-6 lg:space-y-8">
                     <div className="text-center lg:text-left">
-                      <span className="text-amber-500 font-black uppercase tracking-[0.4em] text-[8px] lg:text-[10px] mb-2 block">
+                      <span className="text-primary font-black uppercase tracking-[0.4em] text-[8px] lg:text-[10px] mb-2 block">
                         Transmission Protocol
                       </span>
                       <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter">
@@ -217,7 +217,7 @@ const MonopolyAbsoluteGlass = () => {
                       </h3>
                     </div>
 
-                    <button className="group relative w-full py-6 lg:py-8 bg-amber-500 text-black font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs rounded-2xl overflow-hidden shadow-lg transition-transform active:scale-[0.97]">
+                    <button className="group relative w-full py-6 lg:py-8 bg-primary text-black font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs rounded-2xl overflow-hidden shadow-lg transition-transform active:scale-[0.97]">
                       <span className="relative z-10 flex items-center justify-center gap-3 lg:gap-4">
                         <MessageSquare size={18} fill="currentColor" />
                         Message on WhatsApp
@@ -226,14 +226,14 @@ const MonopolyAbsoluteGlass = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                       <button className="flex flex-row lg:flex-col items-center justify-center gap-3 lg:gap-4 py-5 lg:py-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all">
-                        <Calendar size={18} className="text-amber-500" />
+                        <Calendar size={18} className="text-primary" />
                         <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-widest text-white/60">
                           Book Viewing
                         </span>
                       </button>
 
                       <button className="flex flex-row lg:flex-col items-center justify-center gap-3 lg:gap-4 py-5 lg:py-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all">
-                        <LayoutGrid size={18} className="text-amber-500" />
+                        <LayoutGrid size={18} className="text-primary" />
                         <span className="text-[8px] lg:text-[10px] font-black uppercase tracking-widest text-white/60">
                           Full Portfolio
                         </span>

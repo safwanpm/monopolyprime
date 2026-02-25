@@ -112,18 +112,18 @@ const Navbar = () => {
             {links.map((link) => (
               <a
                 key={link}
-                href={`#${link.toLowerCase()}`}
+                href={`/${link.toLowerCase()}`}
                 className="relative text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors group"
               >
                 {link}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-amber-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
+              className="ml-4 px-6 py-2.5 rounded-full bg-primary hover:bg-amber-400 text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
             >
               Book Viewing
             </motion.button>
@@ -164,7 +164,7 @@ const Navbar = () => {
           >
             <button
               onClick={() => setMenuOpen(false)}
-              className="absolute top-6 right-6 text-white text-3xl font-light hover:text-amber-500 transition-colors"
+              className="absolute top-6 right-6 text-white text-3xl font-light hover:text-primary transition-colors"
             >
               ✕
             </button>
@@ -180,9 +180,9 @@ const Navbar = () => {
                 <motion.a
                   key={link}
                   variants={itemVariants}
-                  href={`#${link.toLowerCase()}`}
+                  href={`/${link.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-serif italic tracking-widest text-white hover:text-amber-500 transition-colors"
+                  className="text-3xl font-serif italic tracking-widest text-white hover:text-primary transition-colors"
                 >
                   {link}
                 </motion.a>
@@ -190,7 +190,7 @@ const Navbar = () => {
 
               <motion.button
                 variants={itemVariants}
-                className="mt-8 px-12 py-4 rounded-full bg-amber-500 text-black font-black uppercase tracking-tighter text-sm"
+                className="mt-8 px-12 py-4 rounded-full bg-primary text-black font-black uppercase tracking-tighter text-sm"
               >
                 Inquire Now
               </motion.button>

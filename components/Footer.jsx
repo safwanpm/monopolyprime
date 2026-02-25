@@ -59,7 +59,7 @@ const TitanMonolithFooter = () => {
       className="relative bg-[#020202] pt-40 pb-12 px-6 lg:px-24 overflow-hidden border-t border-white/10"
     >
       {/* Top Gradient Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50 shadow-[0_0_30px_#f59e0b]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 shadow-[0_0_30px_#f59e0b]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* SECTION 1 */}
@@ -77,21 +77,21 @@ const TitanMonolithFooter = () => {
             </div>
 
             <div className="flex flex-wrap gap-8">
-              <button className="px-12 py-5 bg-amber-500 text-black font-black uppercase tracking-[0.4em] text-[10px] rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+              <button className="px-12 py-5 bg-primary text-black font-black uppercase tracking-[0.4em] text-[10px] rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(245,158,11,0.3)]">
                 Inquire Now
               </button>
 
               <div className="flex items-center gap-6">
                 <a
                   href="#"
-                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-amber-500 hover:text-black transition-all"
+                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all"
                 >
                   <Instagram size={20} />
                 </a>
 
                 <a
                   href="#"
-                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-amber-500 hover:text-black transition-all"
+                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all"
                 >
                   <Linkedin size={20} />
                 </a>
@@ -105,7 +105,7 @@ const TitanMonolithFooter = () => {
               in the Emirates."
             </p>
 
-            <div className="text-[10px] font-black tracking-[0.6em] text-amber-500 uppercase">
+            <div className="text-[10px] font-black tracking-[0.6em] text-primary uppercase">
               Sharjah • Dubai • London
             </div>
           </div>
@@ -115,7 +115,7 @@ const TitanMonolithFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-32 footer-reveal">
           {/* Navigation */}
           <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:border-amber-500/50 transition-colors">
-            <h4 className="text-amber-500 font-black uppercase tracking-widest text-xs mb-8">
+            <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-8">
               Navigation
             </h4>
 
@@ -124,7 +124,7 @@ const TitanMonolithFooter = () => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-white font-bold uppercase tracking-widest text-sm hover:text-amber-500 flex items-center justify-between group"
+                    className="text-white font-bold uppercase tracking-widest text-sm hover:text-primary flex items-center justify-between group"
                   >
                     {link.name}
                     <ArrowUpRight
@@ -139,21 +139,21 @@ const TitanMonolithFooter = () => {
 
           {/* Contact Hub */}
           <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:border-amber-500/50 transition-colors lg:col-span-2">
-            <h4 className="text-amber-500 font-black uppercase tracking-widest text-xs mb-8">
+            <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-8">
               Direct Protocols
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <Phone size={18} className="text-amber-500" />
+                  <Phone size={18} className="text-primary" />
                   <span className="text-white font-bold uppercase tracking-widest text-sm">
                     +971 6 5XX XXXX
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <Mail size={18} className="text-amber-500" />
+                  <Mail size={18} className="text-primary" />
                   <span className="text-white font-bold uppercase tracking-widest text-sm">
                     private@titan.ae
                   </span>
@@ -161,7 +161,7 @@ const TitanMonolithFooter = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <MapPin size={18} className="text-amber-500" />
+                <MapPin size={18} className="text-primary" />
                 <span className="text-white/60 text-xs leading-relaxed uppercase tracking-widest">
                   Executive Tower, Aljada <br /> Sharjah, UAE
                 </span>
@@ -170,7 +170,7 @@ const TitanMonolithFooter = () => {
           </div>
 
           {/* Status */}
-          <div className="bg-amber-500 p-10 rounded-[3rem] flex flex-col justify-between text-black">
+          <div className="bg-primary p-10 rounded-[3rem] flex flex-col justify-between text-black">
             <Zap size={32} fill="black" />
             <div>
               <p className="text-[10px] font-black uppercase tracking-widest opacity-60">
@@ -187,7 +187,7 @@ const TitanMonolithFooter = () => {
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 footer-reveal">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-2">
-              <Globe size={14} className="text-amber-500" />
+              <Globe size={14} className="text-primary" />
               <Link
                 href="https://www.instagram.com/conceptra_/"
                 className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40"
@@ -205,7 +205,7 @@ const TitanMonolithFooter = () => {
             onClick={() =>
               window.scrollTo({ top: 0, behavior: "smooth" })
             }
-            className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-amber-500 transition-colors"
+            className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-primary transition-colors"
           >
             Ascend
             <ArrowUp

@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] w-full bg-[#050505] flex flex-col justify-end overflow-hidden pb-10 lg:pb-20">
+    <section className="relative min-h-[100dvh] w-full bg-secondary flex flex-col justify-end overflow-hidden pb-10 lg:pb-20">
       {/* --- Adaptive Background Image --- */}
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
@@ -68,7 +68,7 @@ const Hero = () => {
               onClick={() => setMode(item)}
               className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
                 mode === item
-                  ? "bg-amber-500 text-white shadow-lg shadow-amber-500/20"
+                  ? "bg-primary text-white "
                   : "text-gray-400 hover:text-white"
               }`}
             >
@@ -79,12 +79,12 @@ const Hero = () => {
 
         {/* 2. Dynamic Heading */}
         <motion.div variants={itemVariants} className="mb-10 lg:mb-16">
-          <span className="text-amber-500  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
+          <span className="text-primary  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
             The Pinnacle of UAE Living
           </span>
           <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
             FIND THE <br />
-            <span className="text-amber-500">
+            <span className="text-primary">
               {mode === "buy" ? "INVESTMENT." : "RESIDENCE."}
             </span>
           </h1>
@@ -98,7 +98,7 @@ const Hero = () => {
           {/* Field: Neighborhood */}
           <div className="p-6 lg:p-8 border-b md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
             <div className="flex items-center gap-3 mb-2">
-              <MapPin size={14} className="text-amber-500" />
+              <MapPin size={14} className="text-primary" />
               <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
                 Neighborhood
               </span>
@@ -112,7 +112,7 @@ const Hero = () => {
               </select>
               <ChevronDown
                 size={14}
-                className="text-gray-600 group-hover:text-amber-500 transition-colors"
+                className="text-gray-600 group-hover:text-primary transition-colors"
               />
             </div>
           </div>
@@ -120,7 +120,7 @@ const Hero = () => {
           {/* Field: Asset Type */}
           <div className="p-6 lg:p-8 border-b lg:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
             <div className="flex items-center gap-3 mb-2">
-              <Building2 size={14} className="text-amber-500" />
+              <Building2 size={14} className="text-primary" />
               <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
                 Asset Class
               </span>
@@ -134,7 +134,7 @@ const Hero = () => {
               </select>
               <ChevronDown
                 size={14}
-                className="text-gray-600 group-hover:text-amber-500 transition-colors"
+                className="text-gray-600 group-hover:text-primary transition-colors"
               />
             </div>
           </div>
@@ -142,7 +142,7 @@ const Hero = () => {
           {/* Field: Budget (Dynamic) */}
           <div className="p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all group">
             <div className="flex items-center gap-3 mb-2">
-              <Wallet size={14} className="text-amber-500" />
+              <Wallet size={14} className="text-primary" />
               <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
                 {mode === "buy" ? "Investment (AED)" : "Annual Rent (AED)"}
               </span>
@@ -155,7 +155,7 @@ const Hero = () => {
           </div>
 
           {/* Action Button (Stretches on Mobile) */}
-          <button className="p-6 lg:p-8 bg-amber-500  flex items-center justify-between group hover:bg-[#9A7A2E]  transition-all duration-700">
+          <button className="p-6 lg:p-8 bg-primary  flex items-center justify-between group hover:bg-[#9A7A2E]  transition-all duration-700">
             <span className="text-white group-hover:text-white font-black uppercase text-xs lg:text-sm tracking-tighter transition-colors">
               Begin Exploration
             </span>

@@ -123,8 +123,8 @@ const TitanAbsolute = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* HEADER */}
-        <header className="mb-16 border-l-2 border-amber-500 pl-8">
-          <span className="text-amber-500 font-bold tracking-[0.5em] uppercase text-[9px] mb-2 block">
+        <header className="mb-16 border-l-2 border-primary pl-8">
+          <span className="text-primary font-bold tracking-[0.5em] uppercase text-[9px] mb-2 block">
             Verified Protocol
           </span>
           <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">
@@ -152,7 +152,7 @@ const TitanAbsolute = () => {
               {/* CONTENT */}
               <div className="card-inner relative z-10 h-full flex flex-col justify-between p-10 pointer-events-none">
                 <div className="flex justify-between items-start">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-black shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+                  <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-black shadow-[0_0_20px_rgba(245,158,11,0.3)]">
                     <Quote size={20} fill="currentColor" />
                   </div>
                   <div className="flex gap-0.5 pt-2">
@@ -160,7 +160,7 @@ const TitanAbsolute = () => {
                       <Star
                         key={i}
                         size={10}
-                        className="fill-amber-500 text-amber-500"
+                        className="fill-primary text-primary"
                       />
                     ))}
                   </div>
@@ -177,11 +177,11 @@ const TitanAbsolute = () => {
                         {item.name}
                       </h4>
                       <div className="flex items-center gap-1.5 text-neutral-400 text-[9px] uppercase font-bold tracking-widest">
-                        <MapPin size={10} className="text-amber-500" />{" "}
+                        <MapPin size={10} className="text-primary" />{" "}
                         {item.location}
                       </div>
                     </div>
-                    <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 transition-all">
+                    <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                       <ArrowUpRight
                         size={16}
                         className="text-white group-hover:text-black transition-colors"

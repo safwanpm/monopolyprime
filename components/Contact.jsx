@@ -24,12 +24,12 @@ const ContactSignature = () => {
             whileInView={{ width: 60 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="h-1 bg-amber-500 mb-8"
+            className="h-1 bg-primary mb-8"
           />
 
           <h1 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.8] mb-6">
             Let's Start <br />
-            <span className="text-amber-500">Your Legacy.</span>
+            <span className="text-primary">Your Legacy.</span>
           </h1>
 
           <p className="text-neutral-400 text-lg md:text-2xl max-w-2xl font-medium">
@@ -48,7 +48,7 @@ const ContactSignature = () => {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-amber-500 flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+            <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
               <MessageCircle size={28} />
             </div>
 
@@ -57,7 +57,7 @@ const ContactSignature = () => {
               Instant response from our team.
             </p>
 
-            <div className="flex items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
               Chat Now <ArrowUpRight size={16} />
             </div>
           </motion.a>
@@ -69,7 +69,7 @@ const ContactSignature = () => {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-500 mb-16 group-hover:bg-amber-500 group-hover:text-black transition-all">
+            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 group-hover:bg-primary group-hover:text-black transition-all">
               <Phone size={28} />
             </div>
 
@@ -78,7 +78,7 @@ const ContactSignature = () => {
               Speak directly with a strategist.
             </p>
 
-            <div className="flex items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
               +971 6 5XX XXXX <ArrowUpRight size={16} />
             </div>
           </motion.a>
@@ -90,7 +90,7 @@ const ContactSignature = () => {
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
             className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-amber-500/50 transition-all backdrop-blur-xl will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-amber-500 mb-16 group-hover:bg-amber-500 group-hover:text-black transition-all">
+            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 group-hover:bg-primary group-hover:text-black transition-all">
               <Mail size={28} />
             </div>
 
@@ -99,7 +99,7 @@ const ContactSignature = () => {
               Send us your detailed inquiry.
             </p>
 
-            <div className="flex items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
               info@titan.ae <ArrowUpRight size={16} />
             </div>
           </motion.a>
@@ -108,7 +108,7 @@ const ContactSignature = () => {
         {/* --- FOOTER --- */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-8">
           <div className="flex items-start gap-4">
-            <MapPin className="text-amber-500 mt-1" size={20} />
+            <MapPin className="text-primary mt-1" size={20} />
             <div>
               <h4 className="font-bold uppercase tracking-widest text-sm">
                 Our Headquarters
@@ -122,13 +122,13 @@ const ContactSignature = () => {
           <div className="flex gap-8">
             <a
               href="#"
-              className="p-4 rounded-full bg-white/5 hover:bg-amber-500 hover:text-black transition-all"
+              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all"
             >
               <Instagram size={20} />
             </a>
             <a
               href="#"
-              className="p-4 rounded-full bg-white/5 hover:bg-amber-500 hover:text-black transition-all"
+              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all"
             >
               <Linkedin size={20} />
             </a>

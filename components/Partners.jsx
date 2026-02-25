@@ -132,8 +132,8 @@ const PartnerNexus = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <span className="h-[1px] w-12 bg-amber-500" />
-              <span className="text-amber-500 font-black tracking-[0.5em] uppercase text-[10px]">
+              <span className="h-[1px] w-12 bg-primary" />
+              <span className="text-primary font-black tracking-[0.5em] uppercase text-[10px]">
                 Trusted Network
               </span>
             </div>
