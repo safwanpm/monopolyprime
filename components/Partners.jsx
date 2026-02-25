@@ -92,8 +92,8 @@ const PartnerNexus = () => {
       ref={containerRef}
       className="bg-[#020202] py-24 lg:py-40 overflow-hidden relative"
     >
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-amber-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[300px] md:h-[500px] bg-primary/10 blur-[100px] md:blur-[160px] rounded-full pointer-events-none z-0" />
+      <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-white/[0.03] blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-16 lg:mb-28 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
@@ -132,10 +132,12 @@ const PartnerNexus = () => {
           {partnerLogos.map((partner, idx) => (
             <div
               key={`${partner.id}-${idx}`}
-              className="glass-slate group relative flex-shrink-0 w-72 h-44 rounded-[2.5rem] bg-white border border-white/5 backdrop-blur-1xl flex items-center justify-center p-12 transition-colors hover:border-amber-500/30 overflow-hidden"
-              style={{ perspective: "1000px" }}
+           
+              className="glass-slate group relative flex-shrink-0 w-64 h-36 md:w-80 md:h-48 rounded-[2rem] md:rounded-[3rem] bg-white/[0.03] border border-white/10 backdrop-blur-2xl flex items-center justify-center transition-all duration-500 hover:border-amber-500/50 hover:bg-white/[0.08]"
+              style={{ perspective: "1200px" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-[2rem] md:rounded-[3rem] pointer-events-none" />
 
               <img
                 src={partner.url}
