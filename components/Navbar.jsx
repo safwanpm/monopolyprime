@@ -124,8 +124,9 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="ml-4 px-6 py-2.5 rounded-full bg-primary hover:bg-primary text-black text-[10px] font-black uppercase tracking-widest transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]"
-            >
+            ><Link  href="tel:+971588017015">
               Book Viewing
+              </Link>
             </motion.button>
           </div>
 
@@ -182,7 +183,7 @@ const Navbar = () => {
                   variants={itemVariants}
                   href={`/${link.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-serif italic tracking-widest text-white hover:text-primary transition-colors"
+                  className="text-3xl  tracking-widest text-white hover:text-primary transition-colors"
                 >
                   {link}
                 </motion.a>
@@ -191,8 +192,9 @@ const Navbar = () => {
               <motion.button
                 variants={itemVariants}
                 className="mt-8 px-12 py-4 rounded-full bg-primary text-black font-black uppercase tracking-tighter text-sm"
-              >
+              ><Link     href="tel:+971588017015">
                 Inquire Now
+                </Link>
               </motion.button>
             </motion.div>
           </motion.div>

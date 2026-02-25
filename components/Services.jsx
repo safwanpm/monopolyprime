@@ -239,7 +239,7 @@ const ServiceMatrix = () => {
         {/* FOOTER */}
         <footer className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 relative">
           <p className="text-white/5 text-[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
-            Titan
+            Monopoly
           </p>
           <div className="flex gap-10 z-10">
             {["Strategy", "Integrity", "Legacy"].map((word) => (
@@ -253,10 +253,10 @@ const ServiceMatrix = () => {
           </div>
           <div className="text-right z-10">
             <p className="text-primary font-bold text-xs uppercase tracking-widest">
-              Global HQ — Dubai & Sharjah
+             Sharjah - UAE
             </p>
             <p className="text-white/20 text-[10px] uppercase tracking-widest mt-2">
-              © 2026 Signature Collective Group
+              © Monopoly Prime Properties
             </p>
           </div>
         </footer>

@@ -12,6 +12,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -230,9 +231,9 @@ const AboutPage = () => {
           <h2 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
             Let's Build <br /> Your Legacy.
           </h2>
-          <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
+          <Link href="tel:+971588017015" className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
             Contact Strategists
-          </button>
+          </Link>
         </div>
       </section>
 
