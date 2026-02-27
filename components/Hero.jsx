@@ -1,17 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MapPin,
   Building2,
   Wallet,
   ArrowRight,
   ChevronDown,
+  Award,
+  Globe,
+  ShieldCheck
 } from "lucide-react";
 import Image from "next/image";
 
 const Hero = () => {
-  const [mode, setMode] = useState("buy"); // UAE Market: buy or rent
+  const [mode, setMode] = useState("buy");
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -30,6 +33,27 @@ const Hero = () => {
     },
   };
 
+  const stats = [
+    { 
+      icon: <Award size={16} className="text-primary" />, 
+      value: "04+", 
+      label: "Years Excellence", 
+      desc: "Market leadership since 2022" 
+    },
+    { 
+      icon: <Globe size={16} className="text-primary" />, 
+      value: "500+", 
+      label: "Premium Units", 
+      desc: "Exclusive Dubai portfolio" 
+    },
+    { 
+      icon: <ShieldCheck size={16} className="text-primary" />, 
+      value: "100%", 
+      label: "Secure Deals", 
+      desc: "RERA Certified Advisory" 
+    },
+  ];
+
   return (
     <section className="relative min-h-[100dvh] w-full bg-secondary flex flex-col justify-end overflow-hidden pb-10 lg:pb-20">
       {/* --- Adaptive Background Image --- */}
@@ -46,7 +70,6 @@ const Hero = () => {
           priority
           className="object-cover grayscale brightness-[0.35] object-[70%_center] lg:object-center transition-all duration-700"
         />
-        {/* Mobile-optimized vignette: Darker at bottom for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent lg:via-transparent" />
       </motion.div>
 
@@ -57,7 +80,7 @@ const Hero = () => {
         animate="visible"
         className="relative z-10 max-w-[1440px] mx-auto w-full px-6 lg:px-12"
       >
-        {/* 1. Buy/Rent Toggle (Luxury Style) */}
+        {/* 1. Buy/Rent Toggle */}
         <motion.div
           variants={itemVariants}
           className="flex gap-1  w-fit mb-8  pt-36 "
@@ -84,92 +107,73 @@ const Hero = () => {
           </span>
           <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
             FIND THE <br />
-            
             <span className="text-primary">
               {mode === "buy" ? "INVESTMENT." : "RESIDENCE."}
             </span>
           </h1>
         </motion.div>
 
-        {/* 3. Search Matrix (The Responsive Grid) */}
+        {/* 3. New Animated Stats Matrix (Replacing Search Bar) */}
         <motion.div
           variants={itemVariants}
           className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl lg:rounded-xl overflow-hidden shadow-2xl"
         >
-          {/* Field: Neighborhood */}
-          <div className="p-6 lg:p-8 border-b md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
-            <div className="flex items-center gap-3 mb-2">
-              <MapPin size={14} className="text-primary" />
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
-                Neighborhood
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <select className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none appearance-none cursor-pointer">
-                <option className="bg-[#111]">Palm Jumeirah</option>
-                <option className="bg-[#111]">Dubai Marina</option>
-                <option className="bg-[#111]">Business Bay</option>
-                <option className="bg-[#111]">Downtown Dubai</option>
-              </select>
-              <ChevronDown
-                size={14}
-                className="text-gray-600 group-hover:text-primary transition-colors"
+          {stats.map((stat, index) => (
+            <motion.div 
+              key={index}
+              whileHover="hover"
+              className="relative p-8 border-b md:border-r border-white/5 cursor-default overflow-hidden group"
+            >
+              {/* Subtle hover background highlight */}
+              <motion.div 
+                variants={{ hover: { opacity: 1, x: 0 } }}
+                initial={{ opacity: 0, x: -100 }}
+                className="absolute inset-0 bg-gradient-to-r from-white/[0.05] to-transparent pointer-events-none"
               />
-            </div>
-          </div>
 
-          {/* Field: Asset Type */}
-          <div className="p-6 lg:p-8 border-b lg:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all cursor-pointer group">
-            <div className="flex items-center gap-3 mb-2">
-              <Building2 size={14} className="text-primary" />
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
-                Asset Class
-              </span>
-            </div>
-            <div className="flex items-center justify-between">
-              <select className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none appearance-none cursor-pointer">
-                <option className="bg-[#111]">Signature Villa</option>
-                <option className="bg-[#111]">Penthouse</option>
-                <option className="bg-[#111]">Townhouse</option>
-                <option className="bg-[#111]">Hotel Apartment</option>
-              </select>
-              <ChevronDown
-                size={14}
-                className="text-gray-600 group-hover:text-primary transition-colors"
-              />
-            </div>
-          </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  {stat.icon}
+                  <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
+                    {stat.label}
+                  </span>
+                </div>
+                
+                <motion.h3 
+                  variants={{ hover: { y: -5 } }}
+                  className="text-3xl lg:text-4xl font-bold text-white tracking-tighter transition-colors group-hover:text-primary"
+                >
+                  {stat.value}
+                </motion.h3>
 
-          {/* Field: Budget (Dynamic) */}
-          <div className="p-6 lg:p-8 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/[0.05] transition-all group">
-            <div className="flex items-center gap-3 mb-2">
-              <Wallet size={14} className="text-primary" />
-              <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
-                {mode === "buy" ? "Investment (AED)" : "Annual Rent (AED)"}
-              </span>
-            </div>
-            <input
-              type="text"
-              placeholder={mode === "buy" ? "5M - 20M+" : "150k - 500k"}
-              className="bg-transparent text-white font-medium text-sm lg:text-base w-full outline-none placeholder:text-white/20"
-            />
-          </div>
+                <motion.p 
+                  variants={{ 
+                    initial: { opacity: 0, y: 10 }, 
+                    hover: { opacity: 1, y: 0 } 
+                  }}
+                  className="text-[11px] text-gray-400 mt-2 font-medium leading-tight"
+                >
+                  {stat.desc}
+                </motion.p>
+              </div>
+            </motion.div>
+          ))}
 
-          {/* Action Button (Stretches on Mobile) */}
-          <button className="p-6 lg:p-8 bg-primary  flex items-center justify-between group hover:bg-[#9A7A2E]  transition-all duration-700">
-            <span className="text-white group-hover:text-white font-black uppercase text-xs lg:text-sm tracking-tighter transition-colors">
+          {/* Action Button - Kept same style as original */}
+          <button className="p-6 lg:p-8 bg-primary flex items-center justify-between group hover:bg-primary/100 transition-all duration-700">
+            <span className="text-secondary font-black uppercase text-xs lg:text-sm tracking-tighter">
               Begin Exploration
             </span>
-            <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:border-white/30 group-hover:rotate-[-45deg] transition-all duration-700">
-              <ArrowRight
-                size={18}
-                className="text-black group-hover:text-white"
-              />
-            </div>
+            <motion.div 
+              whileHover={{ rotate: -45 }}
+              className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:border-white transition-all duration-700"
+            >
+              <ArrowRight size={18} className="text-black group-hover:text-white " />
+            </motion.div>
           </button>
         </motion.div>
 
-        {/* 4. Trust Bar (Simplified for Phone) */}
+        {/* 4. Trust Bar */}
         <motion.div
           variants={itemVariants}
           className="mt-10 flex flex-col md:flex-row gap-6 md:gap-20 items-start md:items-center opacity-40 hover:opacity-100 transition-all duration-700"

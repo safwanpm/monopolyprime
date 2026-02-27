@@ -28,8 +28,8 @@ const ContactSignature = () => {
           />
 
           <h1 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.8] mb-6">
-            Let's Start <br />
-            <span className="text-primary">Your Legacy.</span>
+              Start the <br />
+            <span className="text-primary">Conversation.</span>
           </h1>
 
           <p className="text-neutral-400 text-lg md:text-2xl max-w-2xl font-medium">
