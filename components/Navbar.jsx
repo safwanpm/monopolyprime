@@ -54,7 +54,6 @@ const Navbar = () => {
     "Properties",
     "About",
     "Services",
-    "Testimonials",
     "Contact",
   ];
 
