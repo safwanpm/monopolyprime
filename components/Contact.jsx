@@ -22,12 +22,13 @@ const ContactSignature = () => {
         {/* --- BIG STATEMENT --- */}
         <div className="mb-20">
 
+          {/* Minimal Motion Line */}
           <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: 60 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="h-[2px] bg-primary mb-8"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="origin-left h-[2px] w-[60px] bg-primary mb-8"
           />
 
           <h1 className="text-3xl md:text-[80px] lg:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-6">
@@ -49,9 +50,9 @@ const ContactSignature = () => {
             href="https://wa.me/971588017015"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl supports-[backdrop-filter]:backdrop-blur-xl"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-md will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.3)] transition-transform duration-300 group-hover:scale-105">
+            <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-transform duration-300 group-hover:scale-105 transform-gpu">
               <MessageCircle size={28} />
             </div>
 
@@ -69,9 +70,9 @@ const ContactSignature = () => {
           {/* Phone */}
           <Link
             href="tel:+971588017015"
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl supports-[backdrop-filter]:backdrop-blur-xl"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-md will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105">
+            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105 transform-gpu">
               <Phone size={28} />
             </div>
 
@@ -89,9 +90,9 @@ const ContactSignature = () => {
           {/* Email */}
           <Link
             href="mailto:info@monopolyprime.ae"
-            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-xl supports-[backdrop-filter]:backdrop-blur-xl"
+            className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-md will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105">
+            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105 transform-gpu">
               <Mail size={28} />
             </div>
 
@@ -101,7 +102,7 @@ const ContactSignature = () => {
               Send us your detailed inquiry.
             </p>
 
-            <div className="flex items-center gap-2 text-primary font-bold text-xs  tracking-widest">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs tracking-widest">
               info@monopolyprime.ae <ArrowUpRight size={16} />
             </div>
           </Link>
@@ -118,7 +119,7 @@ const ContactSignature = () => {
             className="flex items-start gap-4 group"
           >
             <MapPin
-              className="text-primary mt-1 transition-transform duration-300 group-hover:scale-110"
+              className="text-primary mt-1 transition-transform duration-300 group-hover:scale-110 transform-gpu"
               size={20}
             />
             <div>
@@ -135,7 +136,7 @@ const ContactSignature = () => {
           <div className="flex gap-8">
             <a
               href="#"
-              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all duration-300"
+              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all duration-300 transform-gpu"
             >
               <Instagram size={20} />
             </a>
@@ -144,7 +145,7 @@ const ContactSignature = () => {
               href="https://www.linkedin.com/company/monopoly-prime-properties/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all duration-300"
+              className="p-4 rounded-full bg-white/5 hover:bg-primary hover:text-black transition-all duration-300 transform-gpu"
             >
               <Linkedin size={20} />
             </Link>
@@ -153,8 +154,8 @@ const ContactSignature = () => {
         </div>
       </div>
 
-      {/* Glow */}
-      <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Optimized Glow (Reduced blur cost) */}
+      <div className="absolute top-[-10%] right-[-10%] w-[450px] h-[450px] bg-primary/5 blur-[100px] rounded-full pointer-events-none will-change-transform" />
     </section>
   );
 };
