@@ -64,7 +64,7 @@ const ServiceMatrix = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Entrance animation (UNCHANGED DESIGN)
+      // Entrance animation only (smooth & optimized)
       gsap.fromTo(
         ".apex-card",
         { opacity: 0, y: 70 },
@@ -74,86 +74,16 @@ const ServiceMatrix = () => {
           duration: 1,
           stagger: 0.1,
           ease: "power4.out",
+          force3D: true,
           scrollTrigger: {
             trigger: ".apex-grid",
             start: "top 85%",
           },
         }
       );
-
-      const cards = containerRef.current?.querySelectorAll(".apex-card");
-      if (!cards) return;
-
-      cards.forEach((card) => {
-        const bg = card.querySelector(".bg-image");
-        const inner = card.querySelector(".card-inner");
-        const icon = card.querySelector(".icon-box");
-
-        if (!bg || !inner) return;
-
-        // GPU acceleration (important for Safari)
-        bg.style.willChange = "transform";
-        inner.style.willChange = "transform";
-        if (icon) icon.style.willChange = "transform";
-
-        const handleMove = (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-
-          gsap.to(bg, {
-            x: x * 0.05,
-            y: y * 0.05,
-            scale: 1.15,
-            rotate: x * 0.01,
-            duration: 0.7,
-            ease: "power2.out",
-          });
-
-          gsap.to(inner, {
-            x: x * 0.1,
-            y: y * 0.1,
-            duration: 0.4,
-            ease: "power3.out",
-          });
-
-          if (icon) {
-            gsap.to(icon, {
-              x: x * 0.15,
-              y: y * 0.15,
-              duration: 0.3,
-            });
-          }
-        };
-
-        const handleLeave = () => {
-          gsap.to([bg, inner, icon], {
-            x: 0,
-            y: 0,
-            scale: 1,
-            rotate: 0,
-            duration: 0.8,
-            ease: "power3.out",
-          });
-        };
-
-        card.addEventListener("mousemove", handleMove, { passive: true });
-        card.addEventListener("mouseleave", handleLeave);
-
-        card._cleanup = () => {
-          card.removeEventListener("mousemove", handleMove);
-          card.removeEventListener("mouseleave", handleLeave);
-        };
-      });
     }, containerRef);
 
-    return () => {
-      const cards = containerRef.current?.querySelectorAll(".apex-card");
-      cards?.forEach((card) => {
-        if (card._cleanup) card._cleanup();
-      });
-      ctx.revert();
-    };
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -179,6 +109,7 @@ const ServiceMatrix = () => {
               </span>
             </h2>
           </div>
+
           <button className="flex items-center gap-4 text-white/40 hover:text-primary transition-colors uppercase text-[10px] font-black tracking-[0.4em] border-b border-white/5 pb-2 mb-2">
             Protocol Scope <Plus size={14} className="text-primary" />
           </button>
@@ -191,20 +122,23 @@ const ServiceMatrix = () => {
               key={idx}
               className={`apex-card group relative min-h-[450px] rounded-[3rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-primary/50 ${item.span}`}
             >
+              {/* Background */}
               <div className="absolute inset-0 z-0 pointer-events-none">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="bg-image w-full h-full object-cover grayscale brightness-[0.5] group-hover:grayscale-0 group-hover:brightness-[0.8] transition-all duration-1000"
+                  className="w-full h-full object-cover grayscale brightness-[0.5] group-hover:grayscale-0 group-hover:brightness-[0.8] transition-all duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
               </div>
 
+              {/* Large ID */}
               <span className="absolute top-10 right-10 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter group-hover:text-primary/5 transition-colors">
                 {item.id}
               </span>
 
-              <div className="card-inner relative z-10 h-full flex flex-col justify-between p-12 pointer-events-none">
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col justify-between p-12">
                 <div className="flex justify-between items-start">
                   <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary transition-all duration-500">
                     <ArrowUpRight
@@ -231,6 +165,7 @@ const ServiceMatrix = () => {
                 </div>
               </div>
 
+              {/* Scan line */}
               <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/[0.04] to-transparent h-[2px] animate-scan z-20" />
             </div>
           ))}
@@ -241,6 +176,7 @@ const ServiceMatrix = () => {
           <p className="text-white/5 text-[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
             Monopoly
           </p>
+
           <div className="flex gap-10 z-10">
             {["Strategy", "Integrity", "Legacy"].map((word) => (
               <span
@@ -251,9 +187,10 @@ const ServiceMatrix = () => {
               </span>
             ))}
           </div>
+
           <div className="text-right z-10">
             <p className="text-primary font-bold text-xs uppercase tracking-widest">
-             Sharjah - UAE
+              Sharjah - UAE
             </p>
             <p className="text-white/20 text-[10px] uppercase tracking-widest mt-2">
               © Monopoly Prime Properties

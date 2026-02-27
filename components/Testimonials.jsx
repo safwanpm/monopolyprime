@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import { Star, MapPin, Quote, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -8,41 +8,71 @@ if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const testimonials = [
-  {
-    id: "01",
-    name: "Ashna Shameer",
-    location: "Sharjah, UAE",
-    comment:
-      "Wonderful rental experience. Mr. Osama was professional, responsive, and extremely helpful from paperwork to maintenance. Truly appreciate his support.",
-    image: "/images/service1.webp",
-  },
-  {
-    id: "02",
-    name: "Mjd Alzoubi",
-    location: "Sharjah, UAE",
-    comment:
-      "Best rental experience I’ve had. Osama Yacoub was honest, professional, and handled everything promptly. Highly recommended.",
-    image: "/images/service2.webp",
-  },
-  {
-    id: "03",
-    name: "Saurav Bhatia",
-    location: "Sharjah, UAE",
-    comment:
-      "Great experience throughout. Osama was helpful, responsive, and made the 1 BHK process smooth and hassle-free. Reliable agent.",
-    image: "/images/property2.webp",
-  },
-];
 const TitanAbsolute = () => {
   const containerRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  // Memoized testimonials (no re-creation on render)
+  const testimonials = useMemo(
+    () => [
+      {
+        id: "01",
+        name: "Ashna Shameer",
+        location: "Sharjah, UAE",
+        comment:
+          "Wonderful rental experience. Mr. Osama was professional, responsive, and extremely helpful from paperwork to maintenance. Truly appreciate his support.",
+        image: "/images/service1.webp",
+      },
+      {
+        id: "02",
+        name: "Mjd Alzoubi",
+        location: "Sharjah, UAE",
+        comment:
+          "Best rental experience I’ve had. Osama Yacoub was honest, professional, and handled everything promptly. Highly recommended.",
+        image: "/images/service2.webp",
+      },
+      {
+        id: "03",
+        name: "Saurav Bhatia",
+        location: "Sharjah, UAE",
+        comment:
+          "Great experience throughout. Osama was helpful, responsive, and made the 1 BHK process smooth and hassle-free. Reliable agent.",
+        image: "/images/property2.webp",
+      },
+    ],
+    []
+  );
+
+  const handleMove = useCallback((card, inner, bg, e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    gsap.to(inner, {
+      x: x * 0.4,
+      y: y * 0.4,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    gsap.to(bg, {
+      x: -x * 0.2,
+      y: -y * 0.2,
+      scale: 1.05,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  }, []);
+
+  const handleLeave = useCallback((inner, bg) => {
+    gsap.to(inner, { x: 0, y: 0, duration: 0.5 });
+    gsap.to(bg, { x: 0, y: 0, scale: 1, duration: 0.5 });
+  }, []);
 
   useEffect(() => {
-    // Ensure visibility immediately (fail-safe)
     gsap.set(".absolute-card", { opacity: 1, y: 0 });
 
     const ctx = gsap.context(() => {
-      // Reveal animation (UNCHANGED)
       gsap.from(".absolute-card", {
         y: 30,
         opacity: 0,
@@ -54,64 +84,36 @@ const TitanAbsolute = () => {
         },
       });
 
-      const cards = containerRef.current?.querySelectorAll(".absolute-card");
-      if (!cards) return;
+      cardsRef.current.forEach((card) => {
+        if (!card) return;
 
-      cards.forEach((card) => {
         const inner = card.querySelector(".card-inner");
         const bg = card.querySelector(".card-bg-img");
         if (!inner || !bg) return;
 
-        // GPU acceleration for Safari
         inner.style.willChange = "transform";
         bg.style.willChange = "transform";
 
-        const handleMove = (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
+        const move = (e) => handleMove(card, inner, bg, e);
+        const leave = () => handleLeave(inner, bg);
 
-          gsap.to(inner, {
-            x: x * 0.4,
-            y: y * 0.4,
-            duration: 0.3,
-            ease: "power2.out",
-          });
+        card.addEventListener("mousemove", move, { passive: true });
+        card.addEventListener("mouseleave", leave);
 
-          gsap.to(bg, {
-            x: -x * 0.2,
-            y: -y * 0.2,
-            scale: 1.05,
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        };
-
-        const handleLeave = () => {
-          gsap.to(inner, { x: 0, y: 0, duration: 0.5 });
-          gsap.to(bg, { x: 0, y: 0, scale: 1, duration: 0.5 });
-        };
-
-        card.addEventListener("mousemove", handleMove, { passive: true });
-        card.addEventListener("mouseleave", handleLeave);
-
-        // Cleanup
         card._cleanup = () => {
-          card.removeEventListener("mousemove", handleMove);
-          card.removeEventListener("mouseleave", handleLeave);
+          card.removeEventListener("mousemove", move);
+          card.removeEventListener("mouseleave", leave);
         };
       });
     }, containerRef);
 
     return () => {
-      const cards = containerRef.current?.querySelectorAll(".absolute-card");
-      cards?.forEach((card) => {
-        if (card._cleanup) card._cleanup();
+      cardsRef.current.forEach((card) => {
+        if (card?._cleanup) card._cleanup();
       });
-
       ctx.revert();
     };
-  }, []);
+  }, [handleMove, handleLeave]);
 
   return (
     <section
@@ -135,14 +137,16 @@ const TitanAbsolute = () => {
         <div className="absolute-grid grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((item, idx) => (
             <div
-              key={idx}
+              key={item.id}
+              ref={(el) => (cardsRef.current[idx] = el)}
               className="absolute-card group relative min-h-[440px] rounded-[2.5rem] bg-[#0c0c0c] border border-white/10 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-primary/50"
             >
-              {/* IMAGE BACKDROP */}
+              {/* IMAGE */}
               <div className="absolute inset-0 z-0 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.name}
+                  loading="lazy"
                   className="card-bg-img w-full h-full object-cover grayscale opacity-20 brightness-75 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-[#0c0c0c]/90 to-transparent" />
@@ -176,10 +180,11 @@ const TitanAbsolute = () => {
                         {item.name}
                       </h4>
                       <div className="flex items-center gap-1.5 text-neutral-400 text-[9px] uppercase font-bold tracking-widest">
-                        <MapPin size={10} className="text-primary" />{" "}
+                        <MapPin size={10} className="text-primary" />
                         {item.location}
                       </div>
                     </div>
+
                     <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all">
                       <ArrowUpRight
                         size={16}
