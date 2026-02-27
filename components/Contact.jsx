@@ -101,7 +101,7 @@ const ContactSignature = () => {
               Send us your detailed inquiry.
             </p>
 
-            <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-primary font-bold text-xs  tracking-widest">
               info@monopolyprime.ae <ArrowUpRight size={16} />
             </div>
           </Link>
