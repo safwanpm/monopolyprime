@@ -1,20 +1,14 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
-  Key,
   Home,
+  Key,
   Building2,
   TrendingUp,
   Search,
   ArrowUpRight,
   Plus,
 } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const services = [
   {
@@ -60,39 +54,10 @@ const services = [
 ];
 
 const ServiceMatrix = () => {
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Entrance animation only (smooth & optimized)
-      gsap.fromTo(
-        ".apex-card",
-        { opacity: 0, y: 70 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.1,
-          ease: "power4.out",
-          force3D: true,
-          scrollTrigger: {
-            trigger: ".apex-grid",
-            start: "top 85%",
-          },
-        }
-      );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section
-      ref={containerRef}
-      className="bg-[#020202] py-24 px-6 lg:px-12 relative overflow-hidden"
-    >
+    <section className="bg-[#020202] py-24 px-6 lg:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-
+        
         {/* HEADER */}
         <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-12">
           <div className="max-w-3xl">
@@ -102,7 +67,8 @@ const ServiceMatrix = () => {
                 What We Do
               </span>
             </div>
-            <h2 className="text-5xl md:text-[100px] lg-text-[140px] font-black text-white tracking-tighter uppercase leading-[0.75]">
+
+            <h2 className="text-5xl md:text-[100px] lg:text-[140px] font-black text-white tracking-tighter uppercase leading-[0.75]">
               Signature <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 via-white to-neutral-800">
                 Expertise.
@@ -116,24 +82,25 @@ const ServiceMatrix = () => {
         </header>
 
         {/* GRID */}
-        <div className="apex-grid grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((item, idx) => (
             <div
               key={idx}
-              className={`apex-card group relative min-h-[450px] rounded-[3rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-primary/50 ${item.span}`}
+              className={`group relative min-h-[450px] rounded-[3rem] overflow-hidden border border-white/10 transition-all duration-500 hover:border-primary/50 ${item.span}`}
             >
               {/* Background */}
               <div className="absolute inset-0 z-0 pointer-events-none">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover grayscale brightness-[0.5] group-hover:grayscale-0 group-hover:brightness-[0.8] transition-all duration-1000"
+                  loading="lazy"
+                  className="w-full h-full object-cover grayscale brightness-[0.5] group-hover:grayscale-0 group-hover:brightness-[0.8] transition-all duration-700 will-change-transform"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
               </div>
 
               {/* Large ID */}
-              <span className="absolute top-10 right-10 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter group-hover:text-primary/5 transition-colors">
+              <span className="absolute top-10 right-10 text-[10rem] font-black text-white/[0.03] select-none pointer-events-none leading-none tracking-tighter group-hover:text-primary/5 transition-colors duration-500">
                 {item.id}
               </span>
 
@@ -143,37 +110,38 @@ const ServiceMatrix = () => {
                   <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-primary transition-all duration-500">
                     <ArrowUpRight
                       size={20}
-                      className="text-white group-hover:text-black transition-colors"
+                      className="text-white group-hover:text-black transition-colors duration-500"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <h3 className="text-4xl font-bold text-white uppercase tracking-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl lg:text-2xl font-bold text-white uppercase tracking-tight group-hover:text-primary transition-colors duration-500">
                     {item.title}
                   </h3>
+
                   <p className="text-white text-base leading-relaxed font-medium max-w-[450px] drop-shadow-lg">
                     {item.desc}
                   </p>
 
                   <div className="pt-4 flex items-center gap-3">
                     <div className="h-[1px] w-12 bg-primary" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/60 group-hover:text-primary transition-colors">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/60 group-hover:text-primary transition-colors duration-500">
                       Operational Excellence
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Scan line */}
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/[0.04] to-transparent h-[2px] animate-scan z-20" />
+              {/* Scan line (CSS only – Safari safe) */}
+              <div className="absolute inset-0 pointer-events-none h-[2px] bg-gradient-to-b from-white/[0.04] to-transparent animate-scan z-20" />
             </div>
           ))}
         </div>
 
         {/* FOOTER */}
-        <footer className=" hidden md:block mt-32 pt-12 border-t border-white/5  flex-col md:flex-row justify-between items-center gap-12 relative">
-          <p className="text-white/5 text-6xl md:text[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
+        <footer className="hidden md:flex mt-32 pt-12 border-t border-white/5 flex-col md:flex-row justify-between items-center gap-12 relative">
+          <p className="text-white/5 text-6xl md:text-[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
             Monopoly
           </p>
 
@@ -199,10 +167,11 @@ const ServiceMatrix = () => {
         </footer>
       </div>
 
+      {/* Scan Animation */}
       <style jsx>{`
         @keyframes scan {
-          0% { top: -20%; }
-          100% { top: 120%; }
+          0% { transform: translateY(-120%); }
+          100% { transform: translateY(120%); }
         }
         .animate-scan {
           animation: scan 7s linear infinite;

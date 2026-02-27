@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   ArrowUpRight,
   Instagram,
@@ -12,39 +12,10 @@ import {
   ArrowUp,
   Globe,
 } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 const TitanMonolithFooter = () => {
-  const footerRef = useRef(null);
-
-  useEffect(() => {
-    if (!footerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      gsap.from(".footer-reveal", {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 85%",
-          once: true, // prevents re-trigger on iOS bounce scroll
-        },
-      });
-    }, footerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const navLinks = [
     { name: "Properties", href: "/properties" },
     { name: "About", href: "/about" },
@@ -53,17 +24,16 @@ const TitanMonolithFooter = () => {
   ];
 
   return (
-    <footer
-      ref={footerRef}
-      className="relative bg-[#020202] pt-40 pb-12 px-6 lg:px-24 overflow-hidden border-t border-white/10"
-    >
+    <footer className="relative bg-[#020202] pt-40 pb-12 px-6 lg:px-24 overflow-hidden border-t border-white/10 min-h-[100dvh]">
+      
       {/* Top Gradient Line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 shadow-[0_0_30px_#f59e0b]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
+
         {/* SECTION 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40">
-          <div className="lg:col-span-8 footer-reveal">
+          <div className="lg:col-span-8">
             <div className="py-2 flex justify-start">
               <Image
                 src="/images/log_white.png"
@@ -76,21 +46,26 @@ const TitanMonolithFooter = () => {
             </div>
 
             <div className="flex flex-wrap gap-8">
-              <Link href="tel:+971588017015"  className="px-12 py-5 bg-primary text-black font-black uppercase tracking-[0.4em] text-[10px] rounded-full hover:scale-105 transition-all shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+              <Link
+                href="tel:+971588017015"
+                className="px-12 py-5 bg-primary text-black font-black uppercase tracking-[0.4em] text-[10px] rounded-full hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.3)]"
+              >
                 Inquire Now
               </Link>
 
               <div className="flex items-center gap-6">
                 <Link
                   href="#"
-                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all"
+                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all duration-300"
                 >
                   <Instagram size={20} />
                 </Link>
 
                 <Link
                   href="https://www.linkedin.com/company/monopoly-prime-properties/"
-                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-white flex items-center justify-center text-white hover:bg-primary hover:text-black transition-all duration-300"
                 >
                   <Linkedin size={20} />
                 </Link>
@@ -98,10 +73,9 @@ const TitanMonolithFooter = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-4 flex flex-col justify-end lg:text-right footer-reveal">
+          <div className="lg:col-span-4 flex flex-col justify-end lg:text-right">
             <p className="text-white text-lg md:text-xl font-medium leading-relaxed max-w-sm ml-auto mb-8 uppercase tracking-tighter italic opacity-60">
-              "We architect the transitions that define your real estate legacy
-              in the Emirates."
+              "We architect the transitions that define your real estate legacy in the Emirates."
             </p>
 
             <div className="text-[10px] font-black tracking-[0.6em] text-primary uppercase">
@@ -111,9 +85,10 @@ const TitanMonolithFooter = () => {
         </div>
 
         {/* SECTION 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-32 footer-reveal">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-32">
+          
           {/* Navigation */}
-          <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:border-primary/50 transition-colors">
+          <div className="bg-white/5 p-10 rounded-[3rem] border border-white/10 hover:border-primary/50 transition-colors duration-300">
             <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-8">
               Navigation
             </h4>
@@ -121,51 +96,43 @@ const TitanMonolithFooter = () => {
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-white font-bold uppercase tracking-widest text-sm hover:text-primary flex items-center justify-between group"
+                    className="text-white font-bold uppercase tracking-widest text-sm hover:text-primary flex items-center justify-between group transition-colors duration-300"
                   >
                     {link.name}
                     <ArrowUpRight
                       size={14}
-                      className="opacity-0 group-hover:opacity-100 transition-all"
+                      className="opacity-0 group-hover:opacity-100 transition-all duration-300"
                     />
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Contact Hub */}
-          <div className="bg-white/5 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-white/10 hover:border-primary/50 transition-colors lg:col-span-2">
+          <div className="bg-white/5 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-white/10 hover:border-primary/50 transition-colors duration-300 lg:col-span-2">
             <h4 className="text-primary font-black uppercase tracking-widest text-[10px] md:text-xs mb-6 md:mb-8">
               Direct Protocols
             </h4>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-4 md:space-y-6">
-                {/* Phone Number */}
-                <Link
-                  href="tel:+971588017015"
-                  className="flex items-center gap-4 group cursor-pointer"
-                >
+                <Link href="tel:+971588017015" className="flex items-center gap-4 group">
                   <Phone
                     size={18}
-                    className="text-primary group-hover:scale-110 transition-transform"
+                    className="text-primary group-hover:scale-110 transition-transform duration-300"
                   />
                   <span className="text-white font-bold uppercase tracking-widest text-xs md:text-sm break-all">
                     +971 58 801 7015
                   </span>
                 </Link>
 
-                {/* Email */}
-                <Link
-                  href="mailto:info@monopolyprime.ae"
-                  className="flex items-center gap-4 group cursor-pointer"
-                >
+                <Link href="mailto:info@monopolyprime.ae" className="flex items-center gap-4 group">
                   <Mail
                     size={18}
-                    className="text-primary group-hover:scale-110 transition-transform"
+                    className="text-primary group-hover:scale-110 transition-transform duration-300"
                   />
                   <span className="text-white font-bold tracking-widest text-xs md:text-sm break-all">
                     info@monopolyprime.ae
@@ -173,19 +140,18 @@ const TitanMonolithFooter = () => {
                 </Link>
               </div>
 
-              {/* Address */}
               <Link
                 href="https://www.google.com/maps/search/?api=1&query=Al+Shaqaaq+Building+402+Al+Taawun+St+Al+Mamzar+Sharjah"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-start gap-4 group"
               >
                 <MapPin
                   size={18}
-                  className="text-primary shrink-0 group-hover:scale-110 transition-transform"
+                  className="text-primary shrink-0 group-hover:scale-110 transition-transform duration-300"
                 />
                 <span className="text-white/60 text-[10px] md:text-xs leading-relaxed uppercase tracking-widest">
-                  Al Shaqaaq Building - 402 - Al Taawun St - Al Mamzar - Sharjah
-                  - United Arab Emirates
+                  Al Shaqaaq Building - 402 - Al Taawun St - Al Mamzar - Sharjah - UAE
                 </span>
               </Link>
             </div>
@@ -206,43 +172,40 @@ const TitanMonolithFooter = () => {
         </div>
 
         {/* SECTION 3 */}
-        <div className="pt-12 border-t border-white/10 footer-reveal">
-  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
+        <div className="pt-12 border-t border-white/10">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
+            
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
+              <div className="flex items-center gap-2">
+                <Globe size={14} className="text-primary shrink-0" />
+                <Link
+                  href="https://www.instagram.com/conceptra_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-primary transition-colors duration-300"
+                >
+                  Conceptra
+                </Link>
+              </div>
 
-    {/* Left Section */}
-    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">
+                © 2026 MonopolyPrimeProperties
+              </p>
+            </div>
 
-      <div className="flex items-center gap-2">
-        <Globe size={14} className="text-primary shrink-0" />
-        <Link
-          href="https://www.instagram.com/conceptra_/"
-          target="_blank"
-          className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-primary transition-colors break-words"
-        >
-          Conceptra
-        </Link>
-      </div>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-primary transition-colors duration-300"
+            >
+              Ascend
+              <ArrowUp
+                size={16}
+                className="transition-transform duration-300 group-hover:-translate-y-1"
+              />
+            </button>
 
-      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 text-center sm:text-left">
-        © 2026 MonopolyPrimeProperties
-      </p>
-
-    </div>
-
-    {/* Right Section */}
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="group flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-primary transition-colors"
-    >
-      Ascend
-      <ArrowUp
-        size={16}
-        className="transition-transform duration-300 group-hover:-translate-y-1"
-      />
-    </button>
-
-  </div>
-</div>
+          </div>
+        </div>
       </div>
 
       {/* Ambient Glow */}
