@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import ContactSignature from "@/components/Contact";
 import TitanMonolithFooter from "@/components/Footer";
 import MonopolyAbsoluteGlass from "@/components/Popup";
+import Link from "next/link";
 
 if (typeof window !== "undefined" && !gsap.core.globals().ScrollTrigger) {
   gsap.registerPlugin(ScrollTrigger);
@@ -39,8 +40,8 @@ const SignatureAbout = () => {
   const crew = useMemo(
     () => [
       { name: "Osama Yacoub", role: "Executive Strategist", img: "/images/crew1.jpeg" },
-      { name: "Lead Advisor", role: "Dubai Portfolio", img: "/images/crew1.jpeg" },
-      { name: "Market Analyst", role: "Sharjah Corridor", img: "/images/crew1.jpeg" },
+      { name: "Lead Advisor", role: "Dubai Portfolio", img: "/images/crew2.webp" },
+      { name: "Market Analyst", role: "Sharjah Corridor", img: "/images/crew3.webp" },
       { name: "Legal Counsel", role: "Acquisition Protocol", img: "/images/crew1.jpeg" },
     ],
     []
@@ -222,7 +223,7 @@ const SignatureAbout = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12">
               {crew.map((member) => (
                 <motion.div
                   key={member.name}
@@ -239,10 +240,10 @@ const SignatureAbout = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
                   <div className="absolute bottom-8 left-8">
-                    <p className="text-primary font-bold text-[10px] uppercase tracking-widest mb-2">
+                    <p className="hidden md:block text-primary font-bold text-sm md:text-[10px] uppercase tracking-widest mb-2">
                       {member.role}
                     </p>
-                    <h4 className="text-2xl font-bold tracking-tight">
+                    <h4 className="text-sm md:text-lg lg:text-2xl font-bold tracking-tight">
                       {member.name}
                     </h4>
                   </div>
@@ -263,7 +264,8 @@ const SignatureAbout = () => {
               Let's Build <br /> Your Legacy.
             </h2>
             <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
-              Contact Strategists
+              <Link href="tel:+971588017015"> Contact Strategists</Link>
+             
             </button>
           </div>
         </section>

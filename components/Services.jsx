@@ -102,7 +102,7 @@ const ServiceMatrix = () => {
                 What We Do
               </span>
             </div>
-            <h2 className="text-6xl md:text-[140px] font-black text-white tracking-tighter uppercase leading-[0.75]">
+            <h2 className="text-5xl md:text-[100px] lg-text-[140px] font-black text-white tracking-tighter uppercase leading-[0.75]">
               Signature <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 via-white to-neutral-800">
                 Expertise.
@@ -172,8 +172,8 @@ const ServiceMatrix = () => {
         </div>
 
         {/* FOOTER */}
-        <footer className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 relative">
-          <p className="text-white/5 text-[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
+        <footer className=" hidden md:block mt-32 pt-12 border-t border-white/5  flex-col md:flex-row justify-between items-center gap-12 relative">
+          <p className="text-white/5 text-6xl md:text[120px] font-black tracking-tighter uppercase absolute left-0 bottom-[-40px] select-none pointer-events-none">
             Monopoly
           </p>
 

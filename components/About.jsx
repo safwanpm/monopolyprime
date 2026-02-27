@@ -124,7 +124,7 @@ const AboutPage = () => {
             animate={{ width: 80 }}
             className="h-[2px] bg-primary mb-12"
           />
-          <h1 className="reveal-text text-7xl md:text-[160px] font-black tracking-tighter uppercase leading-[0.75] mb-12">
+          <h1 className="reveal-text text-5xl md:text-[100px] lg:text-[160px] font-black tracking-tighter uppercase leading-[0.75] mb-12">
             The <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-800 via-white to-neutral-800">
               Architects
@@ -231,9 +231,10 @@ const AboutPage = () => {
           <h2 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
             Let's Build <br /> Your Legacy.
           </h2>
-          <Link href="tel:+971588017015" className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
-            Contact Strategists
-          </Link>
+         <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
+              <Link href="tel:+971588017015"> Contact Strategists</Link>
+             
+            </button>
         </div>
       </section>
 

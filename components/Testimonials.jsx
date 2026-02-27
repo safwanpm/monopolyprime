@@ -128,7 +128,7 @@ const TitanAbsolute = () => {
           <span className="text-primary font-bold tracking-[0.5em] uppercase text-[9px] mb-2 block">
             Verified Protocol
           </span>
-          <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-none">
             Client <span className="text-white/20">Portfolios.</span>
           </h2>
         </header>
@@ -170,7 +170,7 @@ const TitanAbsolute = () => {
                 </div>
 
                 <div className="space-y-6">
-                  <p className="text-white text-xl leading-snug font-semibold tracking-tight">
+                  <p className="text-white text-sm md:text-lg leading-snug font-semibold tracking-tight">
                     "{item.comment}"
                   </p>
 

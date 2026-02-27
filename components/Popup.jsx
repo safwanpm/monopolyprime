@@ -16,6 +16,7 @@ import {
   LayoutGrid,
 } from "lucide-react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const MonopolyAbsoluteGlass = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ const MonopolyAbsoluteGlass = () => {
     const setVH = () => {
       document.documentElement.style.setProperty(
         "--vh",
-        `${window.innerHeight * 0.01}px`
+        `${window.innerHeight * 0.01}px`,
       );
     };
 
@@ -178,7 +179,10 @@ const MonopolyAbsoluteGlass = () => {
 
                 <div className="relative z-10 mt-10 lg:mt-0 space-y-6 lg:space-y-10">
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
-                    <a href="tel:+971588017015" className="group flex items-center gap-3 lg:gap-4">
+                    <a
+                      href="tel:+971588017015"
+                      className="group flex items-center gap-3 lg:gap-4"
+                    >
                       <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-primary">
                         <Phone size={14} />
                       </div>
@@ -187,7 +191,10 @@ const MonopolyAbsoluteGlass = () => {
                       </span>
                     </a>
 
-                    <a href="mailto:info@monopolyprime.ae" className="group flex items-center gap-3 lg:gap-4">
+                    <a
+                      href="mailto:info@monopolyprime.ae"
+                      className="group flex items-center gap-3 lg:gap-4"
+                    >
                       <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-white/5 flex items-center justify-center text-primary">
                         <Globe size={14} />
                       </div>
@@ -217,12 +224,17 @@ const MonopolyAbsoluteGlass = () => {
                       </h3>
                     </div>
 
-                    <button className="group relative w-full py-6 lg:py-8 bg-primary text-black font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs rounded-2xl overflow-hidden shadow-lg transition-transform active:scale-[0.97]">
+                    <Link
+                      href=" https://wa.me/971588017015?text=Hello%20I%20am%20interested%20in%20your%20property"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative w-full py-6 lg:py-8 bg-primary text-black font-black uppercase tracking-[0.3em] lg:tracking-[0.5em] text-[10px] lg:text-xs rounded-2xl overflow-hidden shadow-lg transition-transform active:scale-[0.97] flex items-center justify-center"
+                    >
                       <span className="relative z-10 flex items-center justify-center gap-3 lg:gap-4">
                         <MessageSquare size={18} fill="currentColor" />
                         Message on WhatsApp
                       </span>
-                    </button>
+                    </Link>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
                       <button className="flex flex-row lg:flex-col items-center justify-center gap-3 lg:gap-4 py-5 lg:py-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all">

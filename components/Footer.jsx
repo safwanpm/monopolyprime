@@ -48,9 +48,8 @@ const TitanMonolithFooter = () => {
   const navLinks = [
     { name: "Properties", href: "/properties" },
     { name: "About", href: "/about" },
-    { name: "Serviece", href: "#service" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -207,34 +206,43 @@ const TitanMonolithFooter = () => {
         </div>
 
         {/* SECTION 3 */}
-        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 footer-reveal">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <Globe size={14} className="text-primary" />
-              <Link
-                href="https://www.instagram.com/conceptra_/"
-                className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40"
-              >
-                Conceptra
-              </Link>
-            </div>
+        <div className="pt-12 border-t border-white/10 footer-reveal">
+  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-8">
 
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20">
-              © 2026 MonopolyPrimeProperties
-            </p>
-          </div>
+    {/* Left Section */}
+    <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 text-center sm:text-left">
 
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-primary transition-colors"
-          >
-            Ascend
-            <ArrowUp
-              size={16}
-              className="group-hover:-translate-y-1 transition-transform"
-            />
-          </button>
-        </div>
+      <div className="flex items-center gap-2">
+        <Globe size={14} className="text-primary shrink-0" />
+        <Link
+          href="https://www.instagram.com/conceptra_/"
+          target="_blank"
+          className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-primary transition-colors break-words"
+        >
+          Conceptra
+        </Link>
+      </div>
+
+      <p className="text-[10px] font-black uppercase tracking-[0.4em] text-white/20 text-center sm:text-left">
+        © 2026 MonopolyPrimeProperties
+      </p>
+
+    </div>
+
+    {/* Right Section */}
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="group flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.5em] text-white/40 hover:text-primary transition-colors"
+    >
+      Ascend
+      <ArrowUp
+        size={16}
+        className="transition-transform duration-300 group-hover:-translate-y-1"
+      />
+    </button>
+
+  </div>
+</div>
       </div>
 
       {/* Ambient Glow */}
