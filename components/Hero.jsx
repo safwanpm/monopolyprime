@@ -16,6 +16,10 @@ import Image from "next/image";
 const Hero = () => {
   const [mode, setMode] = useState("buy");
 
+  // Gold Gradient Class Utility
+  const goldGradientText = "bg-gradient-to-r from-[#BF953F] via-[#FBF5B7] to-[#AA771C] bg-clip-text text-transparent";
+  const goldGradientBg = "bg-gradient-to-r from-[#BF953F] via-[#FBF5B7] to-[#AA771C]";
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,19 +39,19 @@ const Hero = () => {
 
   const stats = [
     { 
-      icon: <Award size={16} className="text-primary" />, 
+      icon: <Award size={16} className="text-[#BF953F]" />, // Fixed icon color to gold
       value: "04+", 
       label: "Years Excellence", 
       desc: "Market leadership since 2022" 
     },
     { 
-      icon: <Globe size={16} className="text-primary" />, 
+      icon: <Globe size={16} className="text-[#BF953F]" />, 
       value: "500+", 
       label: "Premium Units", 
       desc: "Exclusive Dubai portfolio" 
     },
     { 
-      icon: <ShieldCheck size={16} className="text-primary" />, 
+      icon: <ShieldCheck size={16} className="text-[#BF953F]" />, 
       value: "100%", 
       label: "Secure Deals", 
       desc: "RERA Certified Advisory" 
@@ -91,8 +95,8 @@ const Hero = () => {
               onClick={() => setMode(item)}
               className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-500 ${
                 mode === item
-                  ? "bg-primary text-white "
-                  : "text-gray-400 hover:text-white"
+                  ? `${goldGradientBg} text-secondary` // Gold background, dark text
+                  : "text-gray-400 hover:text-white border border-white/10"
               }`}
             >
               {item}
@@ -102,18 +106,18 @@ const Hero = () => {
 
         {/* 2. Dynamic Heading */}
         <motion.div variants={itemVariants} className="mb-10 lg:mb-16">
-          <span className="text-primary  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
+          <span className={`font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block ${goldGradientText}`}>
             The Pinnacle of UAE Living
           </span>
           <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
             FIND THE <br />
-            <span className="text-primary">
+            <span className={goldGradientText}>
               {mode === "buy" ? "INVESTMENT." : "RESIDENCE."}
             </span>
           </h1>
         </motion.div>
 
-        {/* 3. New Animated Stats Matrix (Replacing Search Bar) */}
+        {/* 3. New Animated Stats Matrix */}
         <motion.div
           variants={itemVariants}
           className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-2xl lg:rounded-xl overflow-hidden shadow-2xl"
@@ -124,7 +128,6 @@ const Hero = () => {
               whileHover="hover"
               className="relative p-8 border-b md:border-r border-white/5 cursor-default overflow-hidden group"
             >
-              {/* Subtle hover background highlight */}
               <motion.div 
                 variants={{ hover: { opacity: 1, x: 0 } }}
                 initial={{ opacity: 0, x: -100 }}
@@ -141,7 +144,7 @@ const Hero = () => {
                 
                 <motion.h3 
                   variants={{ hover: { y: -5 } }}
-                  className="text-3xl lg:text-4xl font-bold text-white tracking-tighter transition-colors group-hover:text-primary"
+                  className={`text-3xl lg:text-4xl font-bold text-white tracking-tighter transition-colors group-hover:text-[#FBF5B7]`}
                 >
                   {stat.value}
                 </motion.h3>
@@ -159,16 +162,16 @@ const Hero = () => {
             </motion.div>
           ))}
 
-          {/* Action Button - Kept same style as original */}
-          <button className="p-6 lg:p-8 bg-primary flex items-center justify-between group hover:bg-primary/100 transition-all duration-700">
+          {/* Action Button - Gold Gradient */}
+          <button className={`p-6 lg:p-8 ${goldGradientBg} flex items-center justify-between group hover:brightness-110 transition-all duration-700`}>
             <span className="text-secondary font-black uppercase text-xs lg:text-sm tracking-tighter">
               Begin Exploration
             </span>
             <motion.div 
               whileHover={{ rotate: -45 }}
-              className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-black/10 flex items-center justify-center group-hover:border-white transition-all duration-700"
+              className="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-black/20 flex items-center justify-center group-hover:border-black transition-all duration-700"
             >
-              <ArrowRight size={18} className="text-black group-hover:text-white " />
+              <ArrowRight size={18} className="text-black" />
             </motion.div>
           </button>
         </motion.div>
