@@ -40,11 +40,11 @@ const SignatureAbout = () => {
 
   const crew = useMemo(
     () => [
-      { name: "Ahamed elrahmany ", role: "Executive Strategist", number: "+971582342954", img: "/images/ahmed.jpeg" },
-      { name: "Adnan jafar ", role: "Executive Strategist", number: "+971559884285", img: "/images/adnan.jpeg" },
-      { name: "Hayder", role: "Dubai Portfolio", number: "+971582110586", img: "/images/crew2.webp" },
-      { name: "Mosthafa", role: "Sharjah Corridor", number: "+971526683019", img: "/images/crew3.webp" },
-      { name: "Mukhtar muhammed", role: "Acquisition Protocol", number: "+971588419025", img: "/images/crew1.jpeg" },
+      { name: "Ahamed elrahmany ", role: "Executive Strategist", number: "+971582342954", whatsapp: "971582342954", img: "/images/ahmed.jpeg" },
+      { name: "Adnan jafar ", role: "Executive Strategist", number: "+971559884285", whatsapp: "971559884285", img: "/images/adnan.jpeg" },
+      { name: "Hayder", role: "Dubai Portfolio", number: "+971582110586", whatsapp: "971582110586", img: "/images/crew2.webp" },
+      { name: "Mosthafa", role: "Sharjah Corridor", number: "+971526683019", whatsapp: "971526683019", img: "/images/crew3.webp" },
+      { name: "Mukhtar muhammed", role: "Acquisition Protocol", number: "+971588419025", whatsapp: "971588419025", img: "/images/crew1.jpeg" },
     ],
     []
   );
@@ -261,12 +261,14 @@ const SignatureAbout = () => {
 
                       {/* WhatsApp */}
                       <a
-                        href={`https://wa.me/${member.whatsapp}`}
+                        href={`https://wa.me/${member.whatsapp}?text=${encodeURIComponent(
+                          "Hello, I would like to enquire about your services."
+                        )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-11 h-11 md:w-9 md:h-9 flex items-center justify-center rounded-full 
-                 bg-black/40 md:bg-white/10 backdrop-blur-xl border border-white/20 
-                 active:scale-95 hover:bg-green-500 hover:text-white transition"
+                        className="w-11 h-11 md:w-9 md:h-9 flex items-center justify-center rounded-full
+  bg-black/40 md:bg-white/10 backdrop-blur-xl border border-white/20
+  active:scale-95 hover:bg-green-500 hover:text-white transition"
                       >
                         <svg className="w-5 h-5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M20.52 3.48A11.91 11.91 0 0012.06 0C5.46 0 .08 5.38.08 11.98c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63a11.94 11.94 0 005.84 1.49h.01c6.6 0 11.98-5.38 11.98-11.98 0-3.2-1.25-6.2-3.53-8.4z" />
@@ -301,7 +303,7 @@ const SignatureAbout = () => {
               Ready to Commence
             </h4>
             <h2 className="text-6xl md:text-[114px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
-           Where Mission<br /> Meets Value.
+              Where Mission<br /> Meets Value.
             </h2>
             <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
               <Link href="tel:+971588017015"> Contact Strategists</Link>
