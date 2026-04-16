@@ -14,8 +14,9 @@
   
   /* --color-primary: #bfeb58; */
   /* --color-primary: #EFBF04; */
-  --color-primary: #EFBF04;
+  --color-primary: #b58f3e;
   --color-secondary: #131418;
+ 
 }
 
 @media (prefers-color-scheme: dark) {

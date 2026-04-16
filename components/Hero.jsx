@@ -102,7 +102,7 @@ const Hero = () => {
 
         {/* 2. Dynamic Heading */}
         <motion.div variants={itemVariants} className="mb-10 lg:mb-16">
-          <span className="text-primary  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
+          <span className=" text-primary  font-bold tracking-[0.4em] uppercase text-[9px] md:text-[11px] mb-4 block">
             The Pinnacle of UAE Living
           </span>
           <h1 className="text-5xl md:text-8xl lg:text-[120px] font-bold text-white leading-[0.9] tracking-tighter">
