@@ -18,21 +18,21 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <>
-    <TitanHorizonLoader/>
-    <Navbar/>
-   <Hero/>
-   {/* <SearchBar/> */}
-   <Properties/>
-   {/* <AboutSection/> */}
-   <AboutPage/>
-   <Services/>
-   <PartnerAlliance/>
-   <MonopolyReviews/>
-   <Testimonials/>
-   {/* <CTA/>/ */}
-   <Contact/>
-   <Footer/>
-<SignaturePopup/>
+      <TitanHorizonLoader />
+      <Navbar />
+      <Hero />
+      {/* <SearchBar/> */}
+      <Properties />
+      {/* <AboutSection/> */}
+      <AboutPage />
+      <Services />
+      <PartnerAlliance />
+      <MonopolyReviews />
+      <Testimonials />
+      {/* <CTA/>/ */}
+      <Contact />
+      <Footer />
+      <SignaturePopup />
     </>
   );
 }

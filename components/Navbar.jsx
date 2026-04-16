@@ -51,6 +51,7 @@ const Navbar = () => {
   }, [menuOpen]);
 
   const links = [
+    "Home",
     "Properties",
     "About",
     "Services",
@@ -111,7 +112,7 @@ const Navbar = () => {
             {links.map((link) => (
               <a
                 key={link}
-                href={`/${link.toLowerCase()}`}
+                href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
                 className="relative text-[11px] font-bold uppercase tracking-[0.15em] text-white/70 hover:text-white transition-colors group"
               >
                 {link}
@@ -180,7 +181,7 @@ const Navbar = () => {
                 <motion.a
                   key={link}
                   variants={itemVariants}
-                  href={`/${link.toLowerCase()}`}
+                  href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
                   onClick={() => setMenuOpen(false)}
                   className="text-3xl  tracking-widest text-white hover:text-primary transition-colors"
                 >

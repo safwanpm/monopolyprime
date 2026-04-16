@@ -228,8 +228,8 @@ const AboutPage = () => {
           <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8">
             Ready to Commence
           </h4>
-          <h2 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
-            Let's Build <br /> Your Legacy.
+          <h2 className="text-6xl md:text-[128px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+            Live   Beyond <br /> Ordinary.
           </h2>
          <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
               <Link href="tel:+971588017015"> Contact Strategists</Link>

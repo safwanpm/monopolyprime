@@ -8,6 +8,7 @@ import {
   ArrowDown,
   MapPin,
 } from "lucide-react";
+import { Phone, Instagram, whatsapp } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
@@ -39,10 +40,11 @@ const SignatureAbout = () => {
 
   const crew = useMemo(
     () => [
-      { name: "Osama Yacoub", role: "Executive Strategist", img: "/images/crew1.jpeg" },
-      { name: "Lead Advisor", role: "Dubai Portfolio", img: "/images/crew2.webp" },
-      { name: "Market Analyst", role: "Sharjah Corridor", img: "/images/crew3.webp" },
-      { name: "Legal Counsel", role: "Acquisition Protocol", img: "/images/crew1.jpeg" },
+      { name: "Ahamed elrahmany ", role: "Executive Strategist", number: "+971582342954", img: "/images/ahmed.jpeg" },
+      { name: "Adnan jafar ", role: "Executive Strategist", number: "+971559884285", img: "/images/adnan.jpeg" },
+      { name: "Hayder", role: "Dubai Portfolio", number: "+971582110586", img: "/images/crew2.webp" },
+      { name: "Mosthafa", role: "Sharjah Corridor", number: "+971526683019", img: "/images/crew3.webp" },
+      { name: "Mukhtar muhammed", role: "Acquisition Protocol", number: "+971588419025", img: "/images/crew1.jpeg" },
     ],
     []
   );
@@ -223,7 +225,7 @@ const SignatureAbout = () => {
               </h2>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-12">
               {crew.map((member) => (
                 <motion.div
                   key={member.name}
@@ -239,13 +241,51 @@ const SignatureAbout = () => {
                     className="object-cover group-hover:grayscale transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-                  <div className="absolute bottom-8 left-8">
-                    <p className="hidden md:block text-primary font-bold text-sm md:text-[10px] uppercase tracking-widest mb-2">
-                      {member.role}
-                    </p>
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 md:left-8 md:translate-x-0 text-center md:text-left">
+
                     <h4 className="text-sm md:text-lg lg:text-2xl font-bold tracking-tight">
                       {member.name}
                     </h4>
+
+                    <div className="flex items-center justify-center md:justify-start gap-3 mt-3">
+
+                      {/* Call */}
+                      <a
+                        href={`tel:${member.number}`}
+                        className="w-11 h-11 md:w-9 md:h-9 flex items-center justify-center rounded-full 
+                 bg-black/40 md:bg-white/10 backdrop-blur-xl border border-white/20 
+                 active:scale-95 hover:bg-primary hover:text-black transition"
+                      >
+                        <Phone className="w-5 h-5 md:w-4 md:h-4" />
+                      </a>
+
+                      {/* WhatsApp */}
+                      <a
+                        href={`https://wa.me/${member.whatsapp}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-11 h-11 md:w-9 md:h-9 flex items-center justify-center rounded-full 
+                 bg-black/40 md:bg-white/10 backdrop-blur-xl border border-white/20 
+                 active:scale-95 hover:bg-green-500 hover:text-white transition"
+                      >
+                        <svg className="w-5 h-5 md:w-4 md:h-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M20.52 3.48A11.91 11.91 0 0012.06 0C5.46 0 .08 5.38.08 11.98c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63a11.94 11.94 0 005.84 1.49h.01c6.6 0 11.98-5.38 11.98-11.98 0-3.2-1.25-6.2-3.53-8.4z" />
+                        </svg>
+                      </a>
+
+                      {/* Instagram */}
+                      <a
+                        href={member.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-11 h-11 md:w-9 md:h-9 flex items-center justify-center rounded-full 
+                 bg-black/40 md:bg-white/10 backdrop-blur-xl border border-white/20 
+                 active:scale-95 hover:bg-pink-500 hover:text-white transition"
+                      >
+                        <Instagram className="w-5 h-5 md:w-4 md:h-4" />
+                      </a>
+
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -260,12 +300,12 @@ const SignatureAbout = () => {
             <h4 className="text-[10px] font-black uppercase tracking-[0.5em] mb-8">
               Ready to Commence
             </h4>
-            <h2 className="text-6xl md:text-[120px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
-              Let's Build <br /> Your Legacy.
+            <h2 className="text-6xl md:text-[114px] font-black uppercase tracking-tighter leading-[0.85] mb-12">
+           Where Mission<br /> Meets Value.
             </h2>
             <button className="px-16 py-6 border-2 border-black rounded-full font-black uppercase tracking-[0.4em] text-xs hover:bg-black hover:text-white transition-all">
               <Link href="tel:+971588017015"> Contact Strategists</Link>
-             
+
             </button>
           </div>
         </section>
