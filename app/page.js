@@ -32,7 +32,7 @@ export default function Home() {
       <PartnerAlliance />
       <MonopolyReviews />
       <Testimonials />
-      {/* <CTA/>/ */}
+      
       <Contact />
       <Footer />
       <SignaturePopup />
