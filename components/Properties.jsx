@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import gsap from "gsap";
 import Image from "next/image";
+import VideoShowcase from "./VideoShowcase";
 
 /* =========================
    PROPERTY DATA
@@ -21,10 +22,10 @@ import Image from "next/image";
 const properties = [
   {
     id: 1,
-    title: "The Sky Penthouse",
-    location: "Business Bay, Dubai",
-    price: "AED 12.5M",
-    image: "/images/property1.webp",
+    title: "Faradis Tower",
+    location: "Dubai",
+    price: "AED 1.4M Onwards",
+    image: "/images/prop1.webp",
     beds: 4,
     baths: 5,
     sqft: "4,200",
@@ -43,10 +44,10 @@ const properties = [
   },
   {
     id: 3,
-    title: "Modernist Mansion",
-    location: "Dubai Hills Estate",
-    price: "AED 28.0M",
-    image: "/images/property3.webp",
+    title: "Auresta Tower",
+    location: "Dubai",
+    price: "AED 0.5M Onwards",
+    image: "/images/prop3.webp",
     beds: 5,
     baths: 6,
     sqft: "8,900",
@@ -128,7 +129,7 @@ const PropertyCard = ({ prop, index }) => {
             fill
             priority={index === 0}
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover opacity-60 md:group-hover:opacity-100 grayscale-[0.5] md:group-hover:grayscale-0 transition-all duration-700"
+            className="object-cover  md:group-hover:opacity-100 grayscale-[0.5] md:group-hover:grayscale-0 transition-all duration-700"
           />
         </motion.div>
 
@@ -155,9 +156,9 @@ const PropertyCard = ({ prop, index }) => {
           {/* HEADER */}
           <div className="flex justify-between items-start gap-4">
             <div>
-              <div className="flex items-center gap-2 text-primary/80 mb-1">
+              <div className="flex items-center gap-2 text-primary mb-1">
                 <MapPin size={12} />
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-primary">
                   {prop.location}
                 </span>
               </div>
@@ -176,11 +177,11 @@ const PropertyCard = ({ prop, index }) => {
           </div>
 
           {/* STATS */}
-          <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-3 gap-2">
+          {/* <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-3 gap-2">
             <Stat label="Beds" value={prop.beds} icon={<BedDouble size={14} />} />
             <Stat label="Baths" value={prop.baths} icon={<Bath size={14} />} bordered />
             <Stat label="Size" value={`${prop.sqft} SQFT`} />
-          </div>
+          </div> */}
 
           {/* ACTIONS */}
           <div className="mt-6 pt-6 border-t border-white/5 grid grid-cols-2 gap-3">
@@ -223,6 +224,8 @@ const Stat = ({ label, value, icon, bordered }) => (
     </div>
   </div>
 );
+
+
 
 /* =========================
    MAIN COMPONENT
@@ -278,6 +281,8 @@ const PropertyCollection = () => {
             <PropertyCard key={prop.id} prop={prop} index={idx} />
           ))}
         </div>
+
+     
 
         {/* PORTAL SECTION (Bayut + Dubizzle) */}
        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">

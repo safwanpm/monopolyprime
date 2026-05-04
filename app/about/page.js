@@ -93,7 +93,7 @@ const SignatureAbout = () => {
             start: "top 80%",
           },
         });
-      });
+      } );
     }, containerRef);
 
     return () => ctx.revert();
@@ -140,81 +140,7 @@ const SignatureAbout = () => {
         </section>
 
         {/* MISSION / VISION */}
-        <section className="reveal-section py-32 lg:py-48 px-6 lg:px-12 relative overflow-hidden bg-[#050505]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/[0.03] blur-[150px] rounded-full pointer-events-none will-change-transform transform-gpu" />
-
-          <div className="max-w-7xl mx-auto px-6 md:px-0 relative">
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent z-20" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-white/10 rounded-[4rem] overflow-hidden backdrop-blur-3xl bg-white/[0.02]">
-
-              {/* Mission */}
-              <div className="relative p-12 lg:p-24 flex flex-col justify-center group border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
-                <span className="absolute -top-10 -left-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-primary/[0.03] transition-colors duration-700">
-                  01
-                </span>
-
-                <div className="relative z-10">
-                  <div className="flex items-center gap-6 mb-12">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all duration-700">
-                      <Compass
-                        className="text-primary transition-transform group-hover:rotate-[135deg] duration-1000"
-                        size={32}
-                      />
-                    </div>
-                    <div className="h-px w-12 bg-primary/30" />
-                  </div>
-
-                  <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
-                    OUR <br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/70 to-primary font-light">
-                      Mission.
-                    </span>
-                  </h2>
-
-                  <p className="text-neutral-400 text-lg md:text-xl font-light leading-relaxed max-w-md">
-                    To curate a portfolio of architectural excellence while providing
-                    <span className="text-white font-medium"> unrivaled discretion </span>
-                    and surgical precision in every acquisition.
-                  </p>
-                </div>
-              </div>
-
-              {/* Vision */}
-              <div className="relative p-12 lg:p-24 flex flex-col justify-center group overflow-hidden">
-                <span className="absolute -bottom-10 -right-10 text-[180px] font-black text-white/[0.02] select-none pointer-events-none group-hover:text-primary/[0.03] transition-colors duration-700">
-                  02
-                </span>
-
-                <div className="relative z-10 lg:pl-12">
-                  <div className="flex items-center gap-6 mb-12">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-primary/50 transition-all duration-700">
-                      <Eye
-                        className="text-primary transition-transform group-hover:scale-125 duration-700"
-                        size={32}
-                      />
-                    </div>
-                    <div className="h-px w-12 bg-primary/30" />
-                  </div>
-
-                  <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
-                    OUR <br />
-                    <span className="text-primary bg-clip-text bg-gradient-to-r from-white via-neutral-400 to-white font-light">
-                      Vision.
-                    </span>
-                  </h2>
-
-                  <p className="text-neutral-400 text-lg md:text-xl font-light leading-relaxed max-w-md">
-                    To define the future of the Emirates' skyline by connecting
-                    <span className="text-white font-medium"> global capital </span>
-                    with the region's most exclusive off-market opportunities.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
+      
 
         {/* CREW */}
         <section className="reveal-section py-40 px-6 lg:px-12 bg-white/[0.02]">

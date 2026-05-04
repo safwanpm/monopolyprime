@@ -72,7 +72,7 @@ const ContactSignature = () => {
             href="tel:+971588017015"
             className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-md will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105 transform-gpu">
+             <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-transform duration-300 group-hover:scale-105 transform-gpu">
               <Phone size={28} />
             </div>
 
@@ -92,7 +92,7 @@ const ContactSignature = () => {
             href="mailto:info@monopolyprime.ae"
             className="group p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/10 hover:border-primary/50 transition-all duration-300 backdrop-blur-md will-change-transform"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-16 transition-all duration-300 group-hover:bg-primary group-hover:text-black group-hover:scale-105 transform-gpu">
+           <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-black mb-16 shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-transform duration-300 group-hover:scale-105 transform-gpu">
               <Mail size={28} />
             </div>
 

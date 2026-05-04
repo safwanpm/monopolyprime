@@ -13,6 +13,8 @@ import MonopolyReviews from "@/components/Review";
 import SearchBar from "@/components/SearchBar";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
+import VideoShowcase from "@/components/VideoShowcase";
+import WhatsAppPopup from "@/components/Whatsapppopup";
 
 
 export default function Home() {
@@ -23,6 +25,7 @@ export default function Home() {
       <Hero />
       {/* <SearchBar/> */}
       <Properties />
+      <VideoShowcase />
       {/* <AboutSection/> */}
       <AboutPage />
       <Services />
@@ -33,6 +36,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <SignaturePopup />
+      <WhatsAppPopup/>
     </>
   );
 }
